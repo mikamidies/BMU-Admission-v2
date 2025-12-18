@@ -54,3 +54,9 @@
     </div>
   </section>
 </template>
+
+<style scoped>
+.program {
+  overflow: hidden;
+}
+</style>

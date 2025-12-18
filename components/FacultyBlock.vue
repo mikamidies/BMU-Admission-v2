@@ -7,22 +7,22 @@ const faculties = ref([
   {
     title: "John Doe",
     description: "Massachusetts Institute of Technology ",
-    image: "/",
+    image: "/img/team-1.png",
   },
   {
     title: "Jane Smith",
     description: "Stanford University",
-    image: "/",
+    image: "/img/team-2.png",
   },
   {
     title: "Alice Johnson",
     description: "Harvard University",
-    image: "/",
+    image: "/img/team-3.png",
   },
   {
     title: "Bob Brown",
     description: "California Institute of Technology",
-    image: "/",
+    image: "/img/team-4.png",
   },
 ]);
 </script>
@@ -30,7 +30,7 @@ const faculties = ref([
 <template>
   <section class="faculty">
     <div class="container">
-      <h2 class="heading">Faculty Members</h2>
+      <h2 class="title">Faculty Members</h2>
 
       <Swiper :loop="true" class="slider">
         <SwiperSlide
@@ -39,7 +39,7 @@ const faculties = ref([
           class="slide"
         >
           <div class="content">
-            <h3 class="title">{{ faculty.title }}</h3>
+            <h3 class="name">{{ faculty.title }}</h3>
             <p class="description">{{ faculty.description }}</p>
           </div>
           <div class="image-wrapper">
@@ -50,3 +50,16 @@ const faculties = ref([
     </div>
   </section>
 </template>
+
+<style scoped>
+.faculty {
+  padding: 40px 0;
+  background-color: #f9f9f9;
+}
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--blue);
+  margin-bottom: 24px;
+}
+</style>

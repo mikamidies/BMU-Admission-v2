@@ -2,7 +2,8 @@
   <div class="container" :class="{ scrolled: isScrolled }">
     <div class="left">
       <NuxtLink to="/">
-        <img src="/public/img/brand.svg" />
+        <img src="/public/img/white.svg" class="white" />
+        <img src="/public/img/brand.svg" class="black" />
       </NuxtLink>
     </div>
     <div class="right">
@@ -37,7 +38,8 @@ onUnmounted(() => {
   align-items: center;
   justify-content: space-between;
   padding: 24px;
-  position: sticky;
+  position: fixed;
+  width: 100%;
   top: 0;
   background: transparent;
   z-index: 1000;
@@ -46,7 +48,15 @@ onUnmounted(() => {
 .container.scrolled {
   background: rgba(245, 245, 247, 0.9);
   padding: 20px;
-  border-bottom: 1px solid var(--border);
+}
+.black {
+  display: none;
+}
+.container.scrolled .black {
+  display: block;
+}
+.container.scrolled .white {
+  display: none;
 }
 .left img {
   width: 200px;
@@ -62,25 +72,33 @@ onUnmounted(() => {
 .stick {
   width: 30px;
   height: 3px;
-  background: var(--blue);
+  background: white;
   position: relative;
+  border-radius: 2px;
 }
 .stick::before {
   width: 30px;
   height: 3px;
-  background: var(--blue);
+  background: white;
   content: "";
   position: absolute;
   top: -10px;
   left: 0;
+  border-radius: 2px;
 }
 .stick::after {
   width: 30px;
   height: 3px;
-  background: var(--blue);
+  background: white;
   content: "";
   position: absolute;
   bottom: -10px;
   left: 0;
+  border-radius: 2px;
+}
+.container.scrolled .stick,
+.container.scrolled .stick::before,
+.container.scrolled .stick::after {
+  background: var(--blue);
 }
 </style>

@@ -20,7 +20,8 @@ const partners = [
       :loop="true"
       :centered-slides="true"
       :modules="[Autoplay]"
-      :autoplay="{ delay: 2500, disableOnInteraction: false }"
+      :autoplay="{ delay: 100, disableOnInteraction: false }"
+      :speed="5000"
       class="partners-swiper"
     >
       <SwiperSlide v-for="(partner, index) in partners" :key="index">
@@ -34,7 +35,7 @@ const partners = [
 
 <style scoped>
 .partners {
-  padding: 32px 0;
+  padding: 24px 0;
   background: var(--light-bg);
 }
 .item {

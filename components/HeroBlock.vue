@@ -1,37 +1,46 @@
 <template>
-  <div class="hero-block">
-    <div class="content">
-      <img src="/img/hero.jpg" alt="" />
+  <div class="hero">
+    <div class="space"></div>
+    <div class="wrapper">
+      <img src="/img/hero-2.png" alt="" />
+      <div class="content">
+        <h1>Apply to BMU. Become a professional Expert</h1>
 
-      <h1>Apply to BMU. Become a professional Expert</h1>
-
-      <div class="buttons">
-        <NuxtLink to="/" class="button">
-          Postgraduate Programs
-          <div class="icon">
-            <Icon name="lucide:arrow-right" />
-          </div>
-        </NuxtLink>
-        <NuxtLink to="/" class="button">
-          Undergraduate Programs
-          <div class="icon">
-            <Icon name="lucide:arrow-right" />
-          </div>
-        </NuxtLink>
+        <div class="buttons">
+          <NuxtLink to="/" class="button">
+            Postgraduate Programs
+            <div class="icon">
+              <Icon name="lucide:arrow-right" />
+            </div>
+          </NuxtLink>
+          <NuxtLink to="/" class="button">
+            Undergraduate Programs
+            <div class="icon">
+              <Icon name="lucide:arrow-right" />
+            </div>
+          </NuxtLink>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <style scoped>
-.hero-block {
-  height: 100vh;
+.hero {
+  width: 100%;
+  height: 90vh;
+  position: relative;
+  overflow: hidden;
+}
+.wrapper {
+  height: 100%;
   display: flex;
   align-items: flex-end;
-  padding: 24px;
+  padding: 24px 24px 24px 24px;
   position: relative;
-  margin-top: -106px;
+  background: #9d4edd;
 }
+
 img {
   position: absolute;
   top: 0;
@@ -39,7 +48,28 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: -1;
+  z-index: 1;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  background: #ffffff;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
 }
 .content h1 {
   font-size: 40px;
