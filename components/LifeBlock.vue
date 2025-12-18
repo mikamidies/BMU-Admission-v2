@@ -23,10 +23,10 @@ import "swiper/css/effect-fade";
           effect="fade"
         >
           <SwiperSlide>
-            <img src="/img/photo-1.jpg" alt="" />
+            <img src="/public/img/photo-1.jpg" alt="" />
           </SwiperSlide>
           <SwiperSlide>
-            <img src="/img/photo-2.jpg" alt="" />
+            <img src="/public/img/photo-2.jpg" alt="" />
           </SwiperSlide>
         </Swiper>
       </div>
@@ -41,10 +41,10 @@ import "swiper/css/effect-fade";
           effect="fade"
         >
           <SwiperSlide>
-            <img src="/img/photo-1.jpg" alt="" />
+            <img src="/public/img/photo-1.jpg" alt="" />
           </SwiperSlide>
           <SwiperSlide>
-            <img src="/img/photo-2.jpg" alt="" />
+            <img src="/public/img/photo-2.jpg" alt="" />
           </SwiperSlide>
         </Swiper>
       </div>
@@ -59,10 +59,10 @@ import "swiper/css/effect-fade";
           effect="fade"
         >
           <SwiperSlide>
-            <img src="/img/photo-1.jpg" alt="" />
+            <img src="/public/img/photo-1.jpg" alt="" />
           </SwiperSlide>
           <SwiperSlide>
-            <img src="/img/photo-2.jpg" alt="" />
+            <img src="/public/img/photo-2.jpg" alt="" />
           </SwiperSlide>
         </Swiper>
       </div>
@@ -77,10 +77,10 @@ import "swiper/css/effect-fade";
           effect="fade"
         >
           <SwiperSlide>
-            <img src="/img/photo-1.jpg" alt="" />
+            <img src="/public/img/photo-1.jpg" alt="" />
           </SwiperSlide>
           <SwiperSlide>
-            <img src="/img/photo-2.jpg" alt="" />
+            <img src="/public/img/photo-2.jpg" alt="" />
           </SwiperSlide>
         </Swiper>
       </div>
@@ -95,10 +95,10 @@ import "swiper/css/effect-fade";
           effect="fade"
         >
           <SwiperSlide>
-            <img src="/img/photo-1.jpg" alt="" />
+            <img src="/public/img/photo-1.jpg" alt="" />
           </SwiperSlide>
           <SwiperSlide>
-            <img src="/img/photo-2.jpg" alt="" />
+            <img src="/public/img/photo-2.jpg" alt="" />
           </SwiperSlide>
         </Swiper>
       </div>
@@ -113,10 +113,10 @@ import "swiper/css/effect-fade";
           effect="fade"
         >
           <SwiperSlide>
-            <img src="/img/photo-1.jpg" alt="" />
+            <img src="/public/img/photo-1.jpg" alt="" />
           </SwiperSlide>
           <SwiperSlide>
-            <img src="/img/photo-2.jpg" alt="" />
+            <img src="/public/img/photo-2.jpg" alt="" />
           </SwiperSlide>
         </Swiper>
       </div>
@@ -131,10 +131,10 @@ import "swiper/css/effect-fade";
           effect="fade"
         >
           <SwiperSlide>
-            <img src="/img/photo-1.jpg" alt="" />
+            <img src="/public/img/photo-1.jpg" alt="" />
           </SwiperSlide>
           <SwiperSlide>
-            <img src="/img/photo-2.jpg" alt="" />
+            <img src="/public/img/photo-2.jpg" alt="" />
           </SwiperSlide>
         </Swiper>
       </div>
@@ -149,10 +149,10 @@ import "swiper/css/effect-fade";
           effect="fade"
         >
           <SwiperSlide>
-            <img src="/img/photo-1.jpg" alt="" />
+            <img src="/public/img/photo-1.jpg" alt="" />
           </SwiperSlide>
           <SwiperSlide>
-            <img src="/img/photo-2.jpg" alt="" />
+            <img src="/public/img/photo-2.jpg" alt="" />
           </SwiperSlide>
         </Swiper>
       </div>
