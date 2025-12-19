@@ -151,4 +151,16 @@ img {
   border-radius: 16px;
   object-fit: cover;
 }
+@media screen and (max-width: 400px) {
+  .container {
+    padding: 0 16px;
+  }
+  .header {
+    padding: 20px;
+    font-size: 18px;
+  }
+  .body {
+    padding: 0 20px 20px 20px;
+  }
+}
 </style>

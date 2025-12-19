@@ -62,6 +62,11 @@
   overflow: auto;
   margin: 0 -24px;
   padding: 0 24px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 .item {
   background-color: #023e8a;
@@ -100,5 +105,18 @@ img {
   font-size: 16px;
   line-height: 150%;
   color: #fff;
+}
+@media screen and (max-width: 400px) {
+  .container {
+    padding: 0 16px;
+  }
+  .grid {
+    gap: 16px;
+  }
+  .item {
+    min-width: 300px;
+    height: 400px;
+    padding: 20px;
+  }
 }
 </style>

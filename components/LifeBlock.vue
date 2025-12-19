@@ -162,8 +162,6 @@ import "swiper/css/effect-fade";
 
 <style scoped>
 .life {
-  padding: 40px 0 0 0;
-  background-color: #f5f5f5;
   overflow: hidden;
 }
 .life__title {
@@ -216,5 +214,10 @@ import "swiper/css/effect-fade";
   top: 0;
   left: 0;
   z-index: 1;
+}
+@media screen and (max-width: 400px) {
+  .swiper-slide img {
+    height: 440px;
+  }
 }
 </style>

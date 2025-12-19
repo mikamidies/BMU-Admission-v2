@@ -97,7 +97,7 @@ img {
   transition: all 0.3s cubic-bezier(0.2, 0.9, 0.3, 1.5);
   cursor: pointer;
   padding: 16px;
-
+  display: flex;
   font-size: 18px;
   line-height: 130%;
   font-weight: 600;
@@ -121,5 +121,17 @@ img {
   align-items: center;
   justify-content: center;
   color: var(--blue);
+}
+@media screen and (max-width: 400px) {
+  .wrapper {
+    padding: 16px;
+  }
+  .content h1 {
+    font-size: 32px;
+  }
+  .buttons a {
+    height: 144px;
+    font-size: 16px;
+  }
 }
 </style>

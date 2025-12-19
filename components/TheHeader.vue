@@ -101,4 +101,22 @@ onUnmounted(() => {
 .container.scrolled .stick::after {
   background: var(--blue);
 }
+@media screen and (max-width: 400px) {
+  .container,
+  .container.scrolled {
+    padding: 16px;
+  }
+  .container.scrolled .left img {
+    width: 170px;
+  }
+  .left img {
+    width: 170px;
+  }
+  .stick,
+  .stick::before,
+  .stick::after {
+    width: 28px;
+    height: 2px;
+  }
+}
 </style>

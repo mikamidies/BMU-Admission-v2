@@ -128,4 +128,27 @@
   line-height: 120%;
   font-weight: 600;
 }
+@media screen and (max-width: 400px) {
+  .container {
+    padding: 0 16px;
+  }
+  .card {
+    height: 440px;
+    padding: 16px;
+  }
+  .title {
+    font-size: 32px;
+  }
+  .items {
+    padding: 12px;
+  }
+  .name {
+    font-weight: 400;
+    font-size: 12px;
+  }
+  .icon {
+    width: 40px;
+    height: 40px;
+  }
+}
 </style>

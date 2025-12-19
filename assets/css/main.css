@@ -188,14 +188,14 @@ body {
   margin: 0 auto;
   padding: 0 16px;
 }
-@media screen and (max-width: 1024px) {
-  .container {
-    padding: 0 24px;
-  }
-}
 .section-title {
   font-size: 36px;
   font-weight: 700;
   margin-bottom: 40px;
   color: var(--blue);
+}
+@media screen and (max-width: 1024px) {
+  .container {
+    padding: 0 24px;
+  }
 }

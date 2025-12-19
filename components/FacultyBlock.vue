@@ -79,8 +79,7 @@ const faculties = ref([
 
 <style scoped>
 .faculty {
-  padding: 40px 0;
-  background-color: #f9f9f9;
+  padding: 60px 0;
   overflow: hidden;
 }
 .title {
@@ -132,5 +131,13 @@ const faculties = ref([
   height: 100%;
   object-fit: cover;
   transform: scale(1.1);
+}
+@media screen and (max-width: 400px) {
+  .slider {
+    max-width: 300px;
+  }
+  .image-wrapper {
+    height: 300px;
+  }
 }
 </style>
