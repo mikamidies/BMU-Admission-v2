@@ -125,11 +125,12 @@ img {
   color: var(--blue);
 }
 @media screen and (max-width: 400px) {
-  .wrapper {
-    padding: 16px;
+  .hero {
+    padding: 90px 18px 18px 18px;
+    height: 100vh;
   }
   .content h1 {
-    font-size: 32px;
+    font-size: 28px;
   }
   .buttons a {
     height: 144px;

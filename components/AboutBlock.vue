@@ -58,6 +58,7 @@
   top: 0%;
   left: 0%;
   width: 100%;
+  height: 100%;
 }
 .img img {
   width: 100%;
@@ -76,5 +77,10 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   color: #fff;
+}
+@media screen and (max-width: 400px) {
+  .container {
+    padding: 0 18px;
+  }
 }
 </style>

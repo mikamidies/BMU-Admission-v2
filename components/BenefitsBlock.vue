@@ -161,14 +161,21 @@ img {
 }
 @media screen and (max-width: 400px) {
   .container {
-    padding: 0 16px;
+    padding: 0 18px;
   }
   .grid {
     gap: 16px;
   }
   .item {
     min-width: 300px;
-    padding: 20px;
+    padding: 18px;
+    height: 70vh;
+  }
+  .name {
+    font-size: 20px;
+  }
+  .txt {
+    font-size: 14px;
   }
 }
 </style>
