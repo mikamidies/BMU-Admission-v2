@@ -1,49 +1,34 @@
 <script setup>
 import { Swiper, SwiperSlide } from "swiper/vue";
-import { EffectCards } from "swiper/modules";
-import "swiper/swiper-bundle.css";
+import { Autoplay } from "swiper/modules";
+import "swiper/css";
 import { ref } from "vue";
 
 const faculties = ref([
   {
-    title: "John Doe",
+    title: "Юрий Локтионов",
     description: "Massachusetts Institute of Technology ",
-    image: "/img/team-1.png",
+    image: "/img/team-1.webp",
   },
   {
-    title: "Jane Smith",
+    title: "Лиолень Хендерсон",
     description: "Stanford University",
-    image: "/img/team-2.png",
+    image: "/img/team-2.webp",
   },
   {
-    title: "Alice Johnson",
+    title: "Монту Саксена",
     description: "Harvard University",
-    image: "/img/team-3.png",
+    image: "/img/team-3.webp",
   },
   {
-    title: "Bob Brown",
+    title: "Кристиан Капоне",
     description: "California Institute of Technology",
-    image: "/img/team-4.png",
+    image: "/img/team-4.webp",
   },
   {
-    title: "John Doe",
+    title: "Саймон Поули",
     description: "Massachusetts Institute of Technology ",
-    image: "/img/team-1.png",
-  },
-  {
-    title: "Jane Smith",
-    description: "Stanford University",
-    image: "/img/team-2.png",
-  },
-  {
-    title: "Alice Johnson",
-    description: "Harvard University",
-    image: "/img/team-3.png",
-  },
-  {
-    title: "Bob Brown",
-    description: "California Institute of Technology",
-    image: "/img/team-4.png",
+    image: "/img/team-5.webp",
   },
 ]);
 </script>
@@ -51,28 +36,36 @@ const faculties = ref([
 <template>
   <section class="faculty">
     <div class="container">
-      <h2 class="title">Faculty Members</h2>
+      <h2 class="title">Члены факультета</h2>
 
-      <Swiper
-        :loop="true"
-        :effect="'cards'"
-        :modules="[EffectCards]"
-        class="slider"
-      >
-        <SwiperSlide
-          v-for="(faculty, index) in faculties"
-          :key="index"
-          class="slide"
+      <ClientOnly>
+        <Swiper
+          :slides-per-view="1.7"
+          :loop="true"
+          :modules="[Autoplay]"
+          :autoplay="{
+            delay: 100,
+            disableOnInteraction: false,
+          }"
+          :speed="10000"
+          :space-between="8"
+          class="slider"
         >
-          <div class="content">
-            <h3 class="name">{{ faculty.title }}</h3>
-            <p class="description">{{ faculty.description }}</p>
-          </div>
-          <div class="image-wrapper">
-            <img :src="faculty.image" :alt="faculty.title" class="image" />
-          </div>
-        </SwiperSlide>
-      </Swiper>
+          <SwiperSlide
+            v-for="(faculty, index) in faculties"
+            :key="index"
+            class="slide"
+          >
+            <div class="image-wrapper">
+              <img :src="faculty.image" :alt="faculty.title" class="image" />
+            </div>
+            <div class="content">
+              <h3 class="name">{{ faculty.title }}</h3>
+              <p class="description">{{ faculty.description }}</p>
+            </div>
+          </SwiperSlide>
+        </Swiper>
+      </ClientOnly>
     </div>
   </section>
 </template>
@@ -82,6 +75,9 @@ const faculties = ref([
   padding: 60px 0;
   overflow: hidden;
 }
+.container {
+  padding: 0 18px;
+}
 .title {
   font-size: 24px;
   font-weight: 700;
@@ -90,37 +86,39 @@ const faculties = ref([
 }
 .slider {
   width: 100%;
-  max-width: 400px;
   margin: 0 auto;
+  background: var(--biege);
+  padding: 32px 16px;
+  border-radius: 8px;
+  overflow: hidden;
 }
 .slide {
   display: flex;
   flex-direction: column;
-  background: #023e8a;
-  border-radius: 16px;
-}
-.slide:nth-child(even) {
-  background: #0077b6;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
 }
 .content {
-  margin-bottom: 16px;
-  padding: 24px;
+  padding: 16px;
 }
 .name {
-  font-size: 32px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 700;
   margin-bottom: 8px;
-  color: white;
+  color: var(--black);
 }
 .description {
   font-weight: 300;
-  font-size: 16px;
-  color: white;
+  font-size: 12px;
+  line-height: 1.2;
+  color: var(--black);
   opacity: 0.8;
+  height: 32px;
 }
 .image-wrapper {
   width: 100%;
-  height: 400px;
+  height: 220px;
   overflow: hidden;
   display: flex;
   justify-content: center;

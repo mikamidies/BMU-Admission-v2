@@ -1,7 +1,7 @@
 <template>
   <section class="benefits" ref="benefitsRef">
     <div class="container">
-      <h4 class="title">Why Choose BMU?</h4>
+      <h4 class="title">Почему выбрать BMU?</h4>
       <div class="grid" ref="gridRef">
         <div class="item">
           <h5 class="name">Международное британское образование</h5>
@@ -10,7 +10,7 @@
             университетами и образовательными институтами, предлагая программы,
             разработанные по международным академическим стандартам
           </p>
-          <img src="" />
+          <img src="/public/img/hero-2.png" />
         </div>
         <div class="item">
           <h5 class="name">Международная команда и обучение на английском</h5>
@@ -21,7 +21,7 @@
             профессиональную коммуникацию и готовность работать в международных
             командах.
           </p>
-          <img src="" />
+          <img src="/public/img/hero-3.png" />
         </div>
         <div class="item">
           <h5 class="name">Практика, кейсы и ключевые навыки</h5>
@@ -31,7 +31,7 @@
             аргументации, структурного мышления, публичных выступлений и
             профессиональной коммуникации.
           </p>
-          <img src="" />
+          <img src="/public/img/hero-2.png" />
         </div>
         <div class="item">
           <h5 class="name">Современный кампус и студенческая среда</h5>
@@ -41,7 +41,7 @@
             тренажёрный зал и площадка для падела, которые помогают поддерживать
             баланс между учёбой, продуктивностью и активным досугом.
           </p>
-          <img src="" />
+          <img src="/public/img/hero-3.png" />
         </div>
       </div>
     </div>
@@ -128,10 +128,25 @@ onUnmounted(() => {
   justify-content: space-between;
   position: relative;
 }
+.item::after {
+  content: "";
+  position: absolute;
+  background: #ffffff;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  width: 100%;
+  height: 80%;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
 .item:nth-child(2) {
   background: var(--biege);
 }
-.item:nth-child(2) .txt,
 .item:nth-child(2) .name {
   color: #000;
 }
@@ -148,16 +163,34 @@ onUnmounted(() => {
   font-weight: 700;
   color: #fff;
   margin-bottom: 12px;
+  z-index: 2;
 }
 img {
   width: 100%;
   height: auto;
   position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
 }
 .txt {
   font-size: 16px;
   line-height: 150%;
   color: #fff;
+  z-index: 2;
+}
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+.item:nth-child(2) img,
+.item:nth-child(4) img {
+  height: 90%;
 }
 @media screen and (max-width: 400px) {
   .container {
