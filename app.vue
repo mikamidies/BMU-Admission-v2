@@ -3,9 +3,8 @@
   <HeroBlock />
   <PartnersBlock />
   <AboutBlock />
-  <TextBlock />
   <BenefitsBlock />
   <ProgramBlock />
-  <FacultyBlock id="faculty" />
+  <FacultyBlock />
   <LifeBlock />
 </template>

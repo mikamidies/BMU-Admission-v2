@@ -44,7 +44,7 @@ img {
   height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 8px;
 }
 
 .content {
@@ -84,7 +84,7 @@ img {
 .buttons {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
+  gap: 8px;
 }
 .buttons a {
   width: 100%;

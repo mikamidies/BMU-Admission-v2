@@ -1,42 +1,29 @@
 <template>
   <section class="about">
     <div class="container">
-      <div class="card">
+      <div class="card card-first">
         <div class="img">
           <img src="/img/about-1.jpg" alt="" />
         </div>
+      </div>
+      <div class="card card-sec">
         <div class="content">
           <h4 class="title">Магистерские программы BMU</h4>
           <h4 class="title">созданы для тех, кто хочет:</h4>
-          <!-- <div class="items">
-            <div class="item">
-              <div class="icon">
-                <Icon name="lucide:book-open" />
-              </div>
-              <h5 class="name">World Class Education</h5>
-            </div>
-            <div class="item">
-              <div class="icon">
-                <Icon name="lucide:graduation-cap" />
-              </div>
-              <h5 class="name">Double Degree</h5>
-            </div>
-            <div class="item">
-              <div class="icon">
-                <Icon name="lucide:building" />
-              </div>
-              <h5 class="name">Modern Campus</h5>
-            </div>
-            <div class="item">
-              <div class="icon">
-                <Icon name="lucide:users" />
-              </div>
-              <h5 class="name">Vibrant Student Life</h5>
-            </div>
-          </div> -->
         </div>
       </div>
-      <div></div>
+      <div class="card card-third">
+        <p>
+          • ускорить карьерный рост<br />
+          • получить международную управленческую экспертизу<br />
+          • усилить свои позиции на рынке труда в Узбекистане и за его
+          пределами<br />
+          <br />
+          Мы объединяем британские академические стандарты,
+          практико-ориентированное обучение и глубокое понимание локального и
+          международного бизнес-контекста.
+        </p>
+      </div>
     </div>
   </section>
 </template>
@@ -47,18 +34,30 @@
 }
 .card {
   width: 100%;
-  height: 60vh;
   position: relative;
   overflow: hidden;
   border-radius: 8px;
   padding: 20px;
+}
+.card-first {
+  height: 300px;
+  margin-bottom: 8px;
+}
+.card-sec {
+  background: var(--black);
+  margin-bottom: 8px;
+}
+.card-third {
+  background: #f3f3ee;
+  font-size: 18px;
+  line-height: 1.4;
+  font-weight: 500;
 }
 .img {
   position: absolute;
   top: 0%;
   left: 0%;
   width: 100%;
-  height: 100%;
 }
 .img img {
   width: 100%;
@@ -77,94 +76,5 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   color: #fff;
-}
-.content {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.card::after {
-  content: "";
-  position: absolute;
-  background: #ffffff;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(0, 0, 0, 0.6) 100%
-  );
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 1;
-}
-.desc {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  width: 100%;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(4px);
-  box-shadow: inset 2px 2px 1px 0 rgba(255, 255, 255, 0.3),
-    inset -2px -2px 2px 1px rgba(255, 255, 255, 0.3),
-    0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
-  color: rgba(255, 255, 255, 0.8);
-  transition: all 0.3s cubic-bezier(0.2, 0.9, 0.3, 1.5);
-  cursor: pointer;
-  padding: 16px;
-}
-.item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  transition: all 0.3s ease;
-  gap: 4px;
-}
-.icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 8px;
-}
-.icon span {
-  width: 24px;
-  height: 24px;
-  color: var(--blue);
-}
-.name {
-  font-size: 14px;
-  line-height: 120%;
-  font-weight: 600;
-}
-@media screen and (max-width: 400px) {
-  .container {
-    padding: 0 16px;
-  }
-  .card {
-    height: 440px;
-    padding: 16px;
-  }
-  .title {
-    font-size: 32px;
-  }
-  .items {
-    padding: 12px;
-  }
-  .name {
-    font-weight: 400;
-    font-size: 12px;
-  }
-  .icon {
-    width: 40px;
-    height: 40px;
-  }
 }
 </style>

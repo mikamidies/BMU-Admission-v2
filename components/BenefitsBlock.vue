@@ -13,9 +13,7 @@
           <img src="" />
         </div>
         <div class="item">
-          <h5 class="name">
-            Международная команда и обучение на английском языке
-          </h5>
+          <h5 class="name">Международная команда и обучение на английском</h5>
           <p class="txt">
             Обучение в BMU проходит полностью на английском языке под
             руководством преподавателей с международным академическим и
@@ -116,31 +114,35 @@ onUnmounted(() => {
 .grid {
   display: flex;
   flex-wrap: nowrap;
-  gap: 20px;
+  gap: 8px;
   will-change: transform;
 }
 .item {
-  background-color: #023e8a;
-  padding: 28px;
-  border-radius: 16px;
+  background-color: var(--blue);
+  padding: 20px;
+  border-radius: 8px;
   min-width: 360px;
-  height: 70vh;
+  height: 65vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   position: relative;
 }
 .item:nth-child(2) {
-  background: #fb6f92;
+  background: var(--biege);
+}
+.item:nth-child(2) .txt,
+.item:nth-child(2) .name {
+  color: #000;
 }
 .item:nth-child(3) {
-  background: #9d4edd;
+  background: var(--red);
 }
 .item:nth-child(4) {
-  background: #058c42;
+  background: var(--black);
 }
 .name {
-  font-size: 32px;
+  font-size: 28px;
   line-height: 120%;
   text-transform: uppercase;
   font-weight: 700;
