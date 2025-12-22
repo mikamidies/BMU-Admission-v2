@@ -35,7 +35,7 @@ const partners = [
 
 <style scoped>
 .partners {
-  padding: 24px 0;
+  padding: 0 0 24px 0;
   background: var(--light-bg);
 }
 .item {

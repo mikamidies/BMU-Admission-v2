@@ -2,7 +2,6 @@
   <div class="container" :class="{ scrolled: isScrolled }">
     <div class="left">
       <NuxtLink to="/">
-        <img src="/public/img/white.svg" class="white" />
         <img src="/public/img/brand.svg" class="black" />
       </NuxtLink>
     </div>
@@ -49,15 +48,6 @@ onUnmounted(() => {
   background: rgba(245, 245, 247, 0.9);
   padding: 20px;
 }
-.black {
-  display: none;
-}
-.container.scrolled .black {
-  display: block;
-}
-.container.scrolled .white {
-  display: none;
-}
 .left img {
   width: 200px;
   transition: all 0.3s ease;
@@ -72,14 +62,14 @@ onUnmounted(() => {
 .stick {
   width: 30px;
   height: 3px;
-  background: white;
+  background: var(--blue);
   position: relative;
   border-radius: 2px;
 }
 .stick::before {
   width: 30px;
   height: 3px;
-  background: white;
+  background: var(--blue);
   content: "";
   position: absolute;
   top: -10px;
@@ -89,7 +79,7 @@ onUnmounted(() => {
 .stick::after {
   width: 30px;
   height: 3px;
-  background: white;
+  background: var(--blue);
   content: "";
   position: absolute;
   bottom: -10px;

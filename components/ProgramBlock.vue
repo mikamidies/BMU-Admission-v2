@@ -13,7 +13,7 @@
           </div>
           <transition name="accordion">
             <div v-show="program.isOpen" class="body">
-              <p class="txt">{{ program.description }}</p>
+              <div class="txt" v-html="program.description"></div>
               <img :src="program.img" />
             </div>
           </transition>
@@ -24,42 +24,42 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 
 const programs = ref([
   {
     img: "/img/dir-1.webp",
-    name: "Foundation Year",
+    name: "MSc in International Management",
     description:
-      "The Foundation Year is designed to prepare students for undergraduate studies by providing essential knowledge and skills in various subjects.",
+      "Программа даёт комплексное понимание международного бизнеса и управления, включая:<br>⦁	международный менеджмент и стратегию<br>⦁	глобальные бизнес-модели и рынки<br>⦁	управление международными проектами<br>⦁	кросс-культурную коммуникацию<br>⦁	принятие управленческих решений в глобальной среде<br>Критерии: диплом, сертификат IELTS 6.5, интвервью<br><button class='apply-btn' onclick='applyNow()'>Apply Now</button>",
     isOpen: false,
   },
   {
     img: "/img/dir-2.webp",
-    name: "BSc Accounting and Finance",
+    name: "MSc in Accounting and Finance",
     description:
-      "This program focuses on developing expertise in accounting principles, financial management, and related areas to prepare students for careers in finance and accounting.",
+      "Программа даёт системное и практическое понимание финансов, включая:<br>⦁	финансовый и управленческий учёт<br>⦁	финансовый анализ и интерпретацию отчётности<br>⦁	корпоративные финансы<br>⦁	инвестиционные решения<br>⦁	управление рисками<br>⦁	современные стандарты и практики в accounting & finance<br><br>Критерии: диплом, сертификат IELTS 6.5, интвервью<br><button class='apply-btn' onclick='applyNow()'>Apply Now</button>",
     isOpen: false,
   },
   {
     img: "/img/dir-3.webp",
-    name: "BSc Management IT with BA",
+    name: "MBA with Project Management",
     description:
-      "This program combines management information systems with business analytics to equip students with skills in data analysis, decision making, and technology management.",
+      "Программа объединяет классический MBA и профессиональное управление проектами, включая:<br>⦁	стратегический менеджмент<br>⦁	управление проектами и процессами<br>⦁	планирование сроков, бюджета и ресурсов<br>⦁	управление рисками и качеством<br>⦁	лидерство и управление командами<br>⦁	принятие решений в условиях неопределённости<br><br>Критерии: диплом, сертификат IELTS 6.0, интвервью, опыт работы<br><button class='apply-btn' onclick='applyNow()'>Apply Now</button>",
     isOpen: false,
   },
   {
     img: "/img/dir-4.webp",
-    name: "BSc Banking and Finance",
+    name: "MBA with Data Analytics",
     description:
-      "This program is designed to provide students with a comprehensive understanding of banking operations, financial markets, and investment strategies.",
+      "Программа объединяет классический MBA и современную бизнес-аналитику, включая:<br>⦁	анализ бизнес-данных<br>⦁	принятие управленческих решений на основе данных<br>⦁	интерпретацию показателей и отчётности<br>⦁	бизнес-моделирование и прогнозирование<br>⦁	аналитическое мышление для менеджеров<br><br>Критерии: диплом, сертификат IELTS 6.0, интвервью<br><button class='apply-btn' onclick='applyNow()'>Apply Now</button>",
     isOpen: false,
   },
   {
     img: "/img/dir-5.webp",
-    name: "BBA with International Management",
+    name: "MA Tesol with Educational Leadership",
     description:
-      "This program focuses on developing skills in international business management, preparing students for leadership roles in global organizations.",
+      "Программа сочетает методику преподавания английского языка (TESOL) и образовательное лидерство, включая:<br>⦁	современные подходы к преподаванию английского языка<br>⦁	методику обучения в мультикультурной среде<br>⦁	разработку и оценку учебных программ<br>⦁	образовательное лидерство и управление<br>⦁	академическое качество и развитие преподавателей<br>⦁	исследования и рефлексию в образовании<br><br>Критерии: диплом, сертификат IELTS 6.5, интвервью, опыт работы<br><button class='apply-btn' onclick='applyNow()'>Apply Now</button>",
     isOpen: false,
   },
 ]);
@@ -70,6 +70,17 @@ const toggleAccordion = (index) => {
     prog.isOpen = i === index && !isCurrentlyOpen;
   });
 };
+
+const applyNow = () => {
+  const element = document.getElementById("faculty");
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth" });
+  }
+};
+
+onMounted(() => {
+  window.applyNow = applyNow;
+});
 </script>
 
 <style scoped>
@@ -150,6 +161,16 @@ img {
   height: 180px;
   border-radius: 16px;
   object-fit: cover;
+}
+.apply-btn {
+  background: white;
+  color: var(--blue);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 16px;
 }
 @media screen and (max-width: 400px) {
   .container {

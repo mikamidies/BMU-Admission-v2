@@ -4,38 +4,44 @@
       <h4 class="title">Why Choose BMU?</h4>
       <div class="grid" ref="gridRef">
         <div class="item">
-          <h5 class="name">British Education</h5>
+          <h5 class="name">Международное британское образование</h5>
           <p class="txt">
-            Accedited by British Quality Assurance Agency and partnerd with UK.
-            International faculty members, modern curriculum, and
-            state-of-the-art facilities.
+            British Management University работает в партнёрстве с зарубежными
+            университетами и образовательными институтами, предлагая программы,
+            разработанные по международным академическим стандартам
           </p>
           <img src="" />
         </div>
         <div class="item">
-          <h5 class="name">Double Degree</h5>
+          <h5 class="name">
+            Международная команда и обучение на английском языке
+          </h5>
           <p class="txt">
-            Earn degrees from both BMU and our prestigious UK partner
-            universities, enhancing your global career prospects. Also have a
-            great opportunity to build career both in Uzbekistan and UK.
+            Обучение в BMU проходит полностью на английском языке под
+            руководством преподавателей с международным академическим и
+            практическим опытом. Мультикультурная среда формирует уверенную
+            профессиональную коммуникацию и готовность работать в международных
+            командах.
           </p>
           <img src="" />
         </div>
         <div class="item">
-          <h5 class="name">Modern Campus</h5>
+          <h5 class="name">Практика, кейсы и ключевые навыки</h5>
           <p class="txt">
-            Study in a brand new campus equipped with cutting-edge facilities,
-            fostering an ideal learning environment. Experience modern
-            classrooms, advanced labs, and comfortable study areas.
+            Учебный процесс построен вокруг реальных бизнес- и управленческих
+            кейсов и прикладных проектов. Студенты развивают навыки
+            аргументации, структурного мышления, публичных выступлений и
+            профессиональной коммуникации.
           </p>
           <img src="" />
         </div>
         <div class="item">
-          <h5 class="name">Student Life</h5>
+          <h5 class="name">Современный кампус и студенческая среда</h5>
           <p class="txt">
-            Enjoy a dynamic student life with a variety of clubs, events, and
-            activities that enrich your university experience and foster
-            personal growth.
+            Современный кампус BMU создаёт комфортную и динамичную среду для
+            обучения и жизни. В распоряжении студентов — просторная библиотека,
+            тренажёрный зал и площадка для падела, которые помогают поддерживать
+            баланс между учёбой, продуктивностью и активным досугом.
           </p>
           <img src="" />
         </div>
@@ -80,7 +86,6 @@ onMounted(() => {
       end: 0,
       scrub: true,
       pin: true,
-      markers: true,
       onEnter: () => console.log("ScrollTrigger onEnter"),
       onLeave: () => console.log("ScrollTrigger onLeave"),
     },

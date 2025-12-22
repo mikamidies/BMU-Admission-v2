@@ -1,25 +1,23 @@
 <template>
   <div class="hero">
-    <div class="space"></div>
     <div class="wrapper">
-      <img src="/img/hero-2.png" alt="" />
       <div class="content">
-        <h1>Apply to BMU. Become a professional Expert</h1>
-
-        <div class="buttons">
-          <NuxtLink to="/" class="button">
-            Postgraduate Programs
-            <div class="icon">
-              <Icon name="lucide:arrow-right" />
-            </div>
-          </NuxtLink>
-          <NuxtLink to="/" class="button">
-            Undergraduate Programs
-            <div class="icon">
-              <Icon name="lucide:arrow-right" />
-            </div>
-          </NuxtLink>
-        </div>
+        <img src="/img/hero-4.png" alt="" />
+        <h1>Твой шаг к профессиональному росту и лидерству!</h1>
+      </div>
+      <div class="buttons">
+        <NuxtLink to="/" class="button">
+          Программа Foundation
+          <div class="icon">
+            <Icon name="lucide:arrow-right" />
+          </div>
+        </NuxtLink>
+        <NuxtLink to="/" class="button">
+          Программы для Магистратуры
+          <div class="icon">
+            <Icon name="lucide:arrow-right" />
+          </div>
+        </NuxtLink>
       </div>
     </div>
   </div>
@@ -31,16 +29,8 @@
   height: 90vh;
   position: relative;
   overflow: hidden;
+  padding: 104px 20px 20px 20px;
 }
-.wrapper {
-  height: 100%;
-  display: flex;
-  align-items: flex-end;
-  padding: 24px 24px 24px 24px;
-  position: relative;
-  background: #9d4edd;
-}
-
 img {
   position: absolute;
   top: 0;
@@ -50,7 +40,22 @@ img {
   object-fit: cover;
   z-index: 1;
 }
-.hero::after {
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: calc(100% - 132px);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.content::after {
   content: "";
   position: absolute;
   background: #ffffff;
@@ -58,7 +63,7 @@ img {
     180deg,
     rgba(255, 255, 255, 0) 0%,
     rgba(255, 255, 255, 0) 0%,
-    rgba(0, 0, 0, 0.4) 100%
+    rgba(0, 0, 0, 0.6) 100%
   );
   width: 100%;
   height: 100%;
@@ -66,17 +71,15 @@ img {
   left: 0;
   z-index: 1;
 }
-.content {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-}
 .content h1 {
-  font-size: 40px;
+  font-size: 32px;
   line-height: 110%;
   font-weight: 700;
-  margin-bottom: 24px;
   color: white;
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  z-index: 2;
 }
 .buttons {
   display: grid;
@@ -85,16 +88,11 @@ img {
 }
 .buttons a {
   width: 100%;
-  height: 160px;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.05);
+  height: 132px;
+  border-radius: 8px;
+  background: var(--second-blue);
   backdrop-filter: blur(4px);
-  box-shadow: inset 2px 2px 1px 0 rgba(255, 255, 255, 0.3),
-    inset -2px -2px 2px 1px rgba(255, 255, 255, 0.3),
-    0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
-  color: rgba(255, 255, 255, 0.8);
   font-size: 5vmin;
-  transition: all 0.3s cubic-bezier(0.2, 0.9, 0.3, 1.5);
   cursor: pointer;
   padding: 16px;
   display: flex;
@@ -102,6 +100,10 @@ img {
   line-height: 130%;
   font-weight: 600;
   position: relative;
+  color: white;
+}
+.buttons a:nth-child(2) {
+  background: var(--red);
 }
 .buttons a::after {
   content: "";

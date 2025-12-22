@@ -6,8 +6,9 @@
           <img src="/img/about-1.jpg" alt="" />
         </div>
         <div class="content">
-          <h4 class="title">What is British Management University?</h4>
-          <div class="items">
+          <h4 class="title">Магистерские программы BMU</h4>
+          <h4 class="title">созданы для тех, кто хочет:</h4>
+          <!-- <div class="items">
             <div class="item">
               <div class="icon">
                 <Icon name="lucide:book-open" />
@@ -32,7 +33,7 @@
               </div>
               <h5 class="name">Vibrant Student Life</h5>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
       <div></div>
@@ -46,10 +47,10 @@
 }
 .card {
   width: 100%;
-  height: 500px;
+  height: 60vh;
   position: relative;
   overflow: hidden;
-  border-radius: 16px;
+  border-radius: 8px;
   padding: 20px;
 }
 .img {
@@ -67,7 +68,7 @@
 }
 .content {
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 .title {
   font-size: 32px;
@@ -76,7 +77,6 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   color: #fff;
-  margin-bottom: 24px;
 }
 .content {
   height: 100%;
@@ -84,7 +84,23 @@
   flex-direction: column;
   justify-content: space-between;
 }
-.items {
+.card::after {
+  content: "";
+  position: absolute;
+  background: #ffffff;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.desc {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   width: 100%;
