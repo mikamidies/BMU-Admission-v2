@@ -1,8 +1,8 @@
 <template>
-  <section class="benefits">
+  <section class="benefits" ref="benefitsRef">
     <div class="container">
       <h4 class="title">Why Choose BMU?</h4>
-      <div class="grid">
+      <div class="grid" ref="gridRef">
         <div class="item">
           <h5 class="name">British Education</h5>
           <p class="txt">
@@ -44,6 +44,59 @@
   </section>
 </template>
 
+<script setup>
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
+const benefitsRef = ref(null);
+const gridRef = ref(null);
+
+onMounted(() => {
+  console.log("onMounted triggered");
+  const grid = gridRef.value;
+  const benefits = benefitsRef.value;
+
+  if (!grid || !benefits) {
+    console.log("refs not found");
+    return;
+  }
+
+  let totalScroll;
+
+  function refresh() {
+    totalScroll = Math.max(0, grid.scrollWidth - grid.clientWidth);
+  }
+
+  refresh();
+
+  gsap.to(grid, {
+    x: () => -totalScroll,
+    ease: "none",
+    scrollTrigger: {
+      trigger: benefits,
+      start: "top 48px",
+      end: 0,
+      scrub: true,
+      pin: true,
+      markers: true,
+      onEnter: () => console.log("ScrollTrigger onEnter"),
+      onLeave: () => console.log("ScrollTrigger onLeave"),
+    },
+  });
+  console.log(
+    "gsap.to created, ScrollTrigger count:",
+    ScrollTrigger.getAll().length
+  );
+  ScrollTrigger.refresh();
+});
+
+onUnmounted(() => {
+  ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+});
+</script>
+
 <style scoped>
 .benefits {
   padding: 60px 0;
@@ -59,21 +112,14 @@
   display: flex;
   flex-wrap: nowrap;
   gap: 20px;
-  overflow: auto;
-  margin: 0 -24px;
-  padding: 0 24px;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-.hide-scrollbar::-webkit-scrollbar {
-  display: none;
+  will-change: transform;
 }
 .item {
   background-color: #023e8a;
   padding: 28px;
   border-radius: 16px;
   min-width: 360px;
-  height: 480px;
+  height: 70vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -115,7 +161,6 @@ img {
   }
   .item {
     min-width: 300px;
-    height: 400px;
     padding: 20px;
   }
 }

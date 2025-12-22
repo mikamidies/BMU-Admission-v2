@@ -14,4 +14,5 @@ export default defineNuxtConfig({
 
   css: ["~/assets/css/main.css"],
   modules: ["@nuxt/icon"],
+  plugins: ["~/plugins/gsap.client.js"],
 });
