@@ -51,7 +51,7 @@ img {
   position: relative;
   z-index: 2;
   width: 100%;
-  height: 680px;
+  height: 660px;
   overflow: hidden;
 }
 .content::after {

@@ -121,8 +121,9 @@ onUnmounted(() => {
   background-color: var(--blue);
   padding: 20px;
   border-radius: 8px;
+  overflow: hidden;
   min-width: 360px;
-  height: 65vh;
+  height: 600px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
