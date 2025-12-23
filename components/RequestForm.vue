@@ -2,6 +2,9 @@
   <section class="request-form">
     <div class="container">
       <h2 class="title">Отправить запрос</h2>
+      <p class="sub">
+        Хотите больше узнать о BMU курсах? Оставьте заявку — и мы перезвоним:
+      </p>
       <form @submit.prevent="submitForm" class="form">
         <input
           v-model="form.name"
@@ -67,7 +70,13 @@ const submitForm = () => {
   font-size: 24px;
   font-weight: 700;
   text-align: center;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
+}
+.sub {
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+  margin-bottom: 40px;
 }
 .form {
   display: flex;
