@@ -10,10 +10,10 @@
             университетами и образовательными институтами, предлагая программы,
             разработанные по международным академическим стандартам
           </p>
-          <img src="/public/img/hero-2.png" />
+          <img src="/public/img/ben-1.png" />
         </div>
         <div class="item">
-          <h5 class="name">Международная команда и обучение на английском</h5>
+          <h5 class="name">Международная команда преподавателей</h5>
           <p class="txt">
             Обучение в BMU проходит полностью на английском языке под
             руководством преподавателей с международным академическим и
@@ -21,7 +21,7 @@
             профессиональную коммуникацию и готовность работать в международных
             командах.
           </p>
-          <img src="/public/img/hero-3.png" />
+          <img src="/public/img/ben-2.png" />
         </div>
         <div class="item">
           <h5 class="name">Практика, кейсы и ключевые навыки</h5>
@@ -31,7 +31,7 @@
             аргументации, структурного мышления, публичных выступлений и
             профессиональной коммуникации.
           </p>
-          <img src="/public/img/hero-2.png" />
+          <img src="/public/img/ben-3.png" />
         </div>
         <div class="item">
           <h5 class="name">Современный кампус и студенческая среда</h5>
@@ -41,7 +41,7 @@
             тренажёрный зал и площадка для падела, которые помогают поддерживать
             баланс между учёбой, продуктивностью и активным досугом.
           </p>
-          <img src="/public/img/hero-3.png" />
+          <img src="/public/img/ben-4.png" />
         </div>
       </div>
     </div>
@@ -129,6 +129,12 @@ onUnmounted(() => {
   justify-content: space-between;
   position: relative;
 }
+.item:nth-child(1) img {
+  transform: translateY(120px);
+}
+.item:nth-child(3) img {
+  transform: translateY(40px);
+}
 .item::after {
   content: "";
   position: absolute;
@@ -137,10 +143,10 @@ onUnmounted(() => {
     180deg,
     rgba(255, 255, 255, 0) 0%,
     rgba(255, 255, 255, 0) 0%,
-    rgba(0, 0, 0, 1) 100%
+    var(--blue) 100%
   );
   width: 100%;
-  height: 80%;
+  height: 60%;
   bottom: 0;
   left: 0;
   z-index: 1;
@@ -148,14 +154,41 @@ onUnmounted(() => {
 .item:nth-child(2) {
   background: var(--biege);
 }
+.item:nth-child(2)::after {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0) 0%,
+    var(--biege) 100%
+  );
+}
+.item:nth-child(2) .txt {
+  color: #000;
+}
 .item:nth-child(2) .name {
   color: #000;
 }
 .item:nth-child(3) {
   background: var(--red);
 }
+.item:nth-child(3)::after {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0) 0%,
+    var(--red) 100%
+  );
+}
 .item:nth-child(4) {
   background: var(--black);
+}
+.item:nth-child(4)::after {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0) 0%,
+    var(--black) 100%
+  );
 }
 .name {
   font-size: 28px;
@@ -176,7 +209,8 @@ img {
 }
 .txt {
   font-size: 16px;
-  line-height: 150%;
+  font-weight: 600;
+  line-height: 130%;
   color: #fff;
   z-index: 2;
 }
