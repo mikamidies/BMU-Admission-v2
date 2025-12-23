@@ -40,7 +40,7 @@ const faculties = ref([
 
       <ClientOnly>
         <Swiper
-          :slides-per-view="1.7"
+          :slides-per-view="1.5"
           :loop="true"
           :modules="[Autoplay]"
           :autoplay="{
@@ -129,13 +129,5 @@ const faculties = ref([
   height: 100%;
   object-fit: cover;
   transform: scale(1.1);
-}
-@media screen and (max-width: 400px) {
-  .slider {
-    max-width: 300px;
-  }
-  .image-wrapper {
-    height: 300px;
-  }
 }
 </style>

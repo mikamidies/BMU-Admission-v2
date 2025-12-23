@@ -6,7 +6,7 @@
   <BenefitsBlock id="benefits" />
   <ProgramBlock id="program" />
   <FacultyBlock id="faculty" />
-  <LifeBlock id="life" />
+  <!-- <LifeBlock id="life" /> -->
   <RequestForm id="request" />
   <button class="fixed-button">Узнать больше</button>
 </template>
