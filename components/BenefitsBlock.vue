@@ -44,6 +44,10 @@
           <img src="/public/img/ben-4.png" />
         </div>
       </div>
+      <p class="note">
+        Обучение полностью проходит на английском языке и соответствует
+        британским академическим стандартам.
+      </p>
     </div>
   </section>
 </template>
@@ -80,7 +84,7 @@ onMounted(() => {
     ease: "none",
     scrollTrigger: {
       trigger: benefits,
-      start: "top 48px",
+      start: "top 64px",
       end: 0,
       scrub: true,
       pin: true,
@@ -226,6 +230,14 @@ img {
 .item:nth-child(2) img,
 .item:nth-child(4) img {
   height: 90%;
+}
+.note {
+  margin: 24px 0;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 130%;
+  color: var(--black);
+  opacity: 0.6;
 }
 @media screen and (max-width: 400px) {
   .container {
