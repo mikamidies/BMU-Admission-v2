@@ -139,14 +139,16 @@ onMounted(() => {
   line-height: 150%;
 }
 .txt {
-  margin-bottom: 16px;
   opacity: 0.8;
+  font-size: 16px;
+  font-weight: 500;
 }
 img {
   width: 100%;
   height: 250px;
   border-radius: 6px;
   object-fit: cover;
+  display: none;
 }
 .apply-btn {
   background: white;

@@ -1,8 +1,11 @@
 <template>
   <div class="hero">
     <div class="content">
-      <img src="/img/hero-4.png" alt="" />
-      <h1>Твой шаг к профессиональному росту и лидерству!</h1>
+      <img src="/img/hero.jpg" alt="" />
+      <h1>
+        Твой шаг к профессиональному <br />
+        росту и лидерству!
+      </h1>
     </div>
     <div class="wrapper">
       <div class="buttons">

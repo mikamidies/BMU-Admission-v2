@@ -9,7 +9,13 @@
   <!-- <LifeBlock id="life" /> -->
   <RequestForm id="request" />
   <transition name="fade">
-    <button class="fixed-button" v-show="showButton">Узнать больше</button>
+    <button
+      class="fixed-button"
+      v-show="showButton"
+      @click="scrollTo('request')"
+    >
+      Узнать больше
+    </button>
   </transition>
 </template>
 
@@ -20,9 +26,16 @@ const showButton = ref(false);
 
 let scrollHandler = null;
 
+const scrollTo = (id) => {
+  const element = document.getElementById(id);
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth" });
+  }
+  isMenuOpen.value = false;
+};
+
 onMounted(() => {
   scrollHandler = () => {
-    // show after 80px scroll to make it noticeable quickly
     showButton.value = window.scrollY >= 80;
   };
   window.addEventListener("scroll", scrollHandler);

@@ -1,15 +1,16 @@
 <template>
   <section class="about">
     <div class="container">
-      <div class="card card-first">
+      <!-- <div class="card card-first">
         <div class="img">
           <img src="/img/about-1.jpg" alt="" />
         </div>
-      </div>
+      </div> -->
       <div class="card card-sec">
         <div class="content">
-          <h4 class="title">Магистерские программы BMU</h4>
-          <h4 class="title">созданы для тех, кто хочет:</h4>
+          <h4 class="title">
+            Магистерские программы BMU созданы для тех, кто хочет:
+          </h4>
         </div>
       </div>
       <div class="card card-third">
@@ -18,10 +19,6 @@
           • получить международную управленческую экспертизу<br />
           • усилить свои позиции на рынке труда в Узбекистане и за его
           пределами<br />
-          <br />
-          Мы объединяем британские академические стандарты,
-          практико-ориентированное обучение и глубокое понимание локального и
-          международного бизнес-контекста.
         </p>
       </div>
     </div>
@@ -37,21 +34,17 @@
   position: relative;
   overflow: hidden;
   border-radius: 8px;
-  padding: 20px;
 }
 .card-first {
   height: 300px;
   margin-bottom: 8px;
 }
-.card-sec {
-  background: var(--black);
-  margin-bottom: 8px;
-}
 .card-third {
-  background: #f3f3ee;
   font-size: 18px;
   line-height: 1.4;
   font-weight: 500;
+  color: var(--black);
+  opacity: 0.9;
 }
 .img {
   position: absolute;
@@ -76,7 +69,8 @@
   line-height: 110%;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: #fff;
+  color: var(--black);
+  margin-bottom: 16px;
 }
 @media screen and (max-width: 400px) {
   .container {
