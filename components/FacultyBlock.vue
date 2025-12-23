@@ -9,26 +9,22 @@ const faculties = ref([
     title: "Юрий Локтионов",
     description: "Massachusetts Institute of Technology ",
     image: "/img/team-1.webp",
+    quote:
+      "Я рекомендую эту программу всем, кто стремится к академическому и личностному росту. Это уникальная возможность учиться у лучших и расширять свои горизонты.",
   },
   {
     title: "Лиолень Хендерсон",
     description: "Stanford University",
     image: "/img/team-2.webp",
-  },
-  {
-    title: "Монту Саксена",
-    description: "Harvard University",
-    image: "/img/team-3.webp",
+    quote:
+      "Я гарантирую, что вы получите незабываемый опыт обучения. Вкладывая в себя, вы инвестируете в свое будущее. Эта программа стоит каждой минуты вашего времени.",
   },
   {
     title: "Кристиан Капоне",
     description: "California Institute of Technology",
     image: "/img/team-4.webp",
-  },
-  {
-    title: "Саймон Поули",
-    description: "Massachusetts Institute of Technology ",
-    image: "/img/team-5.webp",
+    quote:
+      "Для личностного и академического роста эта программа просто необходима. Вы не пожалеете о своем выборе. Это инвестиция в ваше будущее.",
   },
 ]);
 </script>
@@ -56,12 +52,17 @@ const faculties = ref([
             :key="index"
             class="slide"
           >
-            <div class="image-wrapper">
-              <img :src="faculty.image" :alt="faculty.title" class="image" />
+            <div class="top">
+              <div class="image-wrapper">
+                <img :src="faculty.image" :alt="faculty.title" class="image" />
+              </div>
+              <div class="content">
+                <h3 class="name">{{ faculty.title }}</h3>
+                <p class="description">{{ faculty.description }}</p>
+              </div>
             </div>
-            <div class="content">
-              <h3 class="name">{{ faculty.title }}</h3>
-              <p class="description">{{ faculty.description }}</p>
+            <div class="bottom">
+              <div class="txt">{{ faculty.quote }}</div>
             </div>
           </SwiperSlide>
         </Swiper>
@@ -92,15 +93,15 @@ const faculties = ref([
   border-radius: 8px;
   overflow: hidden;
 }
+.swiper-slide {
+  height: auto !important;
+}
 .slide {
   display: flex;
   flex-direction: column;
   background: white;
   border-radius: 8px;
   overflow: hidden;
-}
-.content {
-  padding: 16px;
 }
 .name {
   font-size: 16px;
@@ -117,17 +118,30 @@ const faculties = ref([
   height: 32px;
 }
 .image-wrapper {
-  width: 100%;
-  height: 220px;
   overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  margin-bottom: 16px;
 }
 .image {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transform: scale(1.1);
+}
+.top {
+  display: flex;
+  align-items: center;
+  padding: 18px 18px 0 18px;
+  gap: 16px;
+}
+.bottom {
+  padding: 0px 18px 18px 18px;
+  font-size: 16px;
+  line-height: 1.3;
+  font-weight: 500;
+  color: var(--black);
+  opacity: 0.8;
 }
 </style>
