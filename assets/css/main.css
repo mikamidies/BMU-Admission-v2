@@ -197,6 +197,22 @@ body {
   margin-bottom: 40px;
   color: var(--blue);
 }
+.fixed-button {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--black);
+  color: white;
+  border: none;
+  padding: 18px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  z-index: 1000;
+  width: calc(100% - 40px);
+}
 @media screen and (max-width: 1024px) {
   .container {
     padding: 0 20px;
