@@ -1,7 +1,7 @@
 <template>
   <section class="program">
     <div class="container">
-      <h4 class="title">Структура программы</h4>
+      <h4 class="title">Программы магистратуры</h4>
       <div class="grid">
         <div v-for="(program, index) in programs" :key="index" class="item">
           <div class="header" @click="toggleAccordion(index)">

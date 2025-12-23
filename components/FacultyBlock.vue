@@ -36,11 +36,11 @@ const faculties = ref([
 <template>
   <section class="faculty">
     <div class="container">
-      <h2 class="title">Члены факультета</h2>
+      <h2 class="title">Представители факультета</h2>
 
       <ClientOnly>
         <Swiper
-          :slides-per-view="1.5"
+          :slides-per-view="1"
           :loop="true"
           :modules="[Autoplay]"
           :autoplay="{
