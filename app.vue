@@ -8,8 +8,32 @@
   <FacultyBlock id="faculty" />
   <!-- <LifeBlock id="life" /> -->
   <RequestForm id="request" />
-  <button class="fixed-button">Узнать больше</button>
+  <transition name="fade">
+    <button class="fixed-button" v-show="showButton">Узнать больше</button>
+  </transition>
 </template>
+
+<script setup>
+import { ref, onMounted, onUnmounted } from "vue";
+
+const showButton = ref(false);
+
+let scrollHandler = null;
+
+onMounted(() => {
+  scrollHandler = () => {
+    // show after 80px scroll to make it noticeable quickly
+    showButton.value = window.scrollY >= 80;
+  };
+  window.addEventListener("scroll", scrollHandler);
+});
+
+onUnmounted(() => {
+  if (scrollHandler) {
+    window.removeEventListener("scroll", scrollHandler);
+  }
+});
+</script>
 
 <style scoped>
 .fixed-button {
@@ -27,5 +51,15 @@
   cursor: pointer;
   z-index: 1000;
   width: calc(100% - 40px);
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>

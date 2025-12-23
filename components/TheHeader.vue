@@ -6,9 +6,14 @@
       </NuxtLink>
     </div>
     <div class="right">
-      <div class="burger" @click="toggleMenu" :class="{ open: isMenuOpen }">
+      <!-- <div class="burger" @click="toggleMenu" :class="{ open: isMenuOpen }">
         <div class="stick"></div>
-      </div>
+      </div> -->
+      <button class="call">
+        <a href="tel:+998955119999">
+          <Icon name="gg:phone" width="24" height="24" />
+        </a>
+      </button>
     </div>
     <div class="menu" v-show="isMenuOpen" :class="{ open: isMenuOpen }">
       <div class="menu-content">
@@ -82,11 +87,11 @@ onUnmounted(() => {
   padding: 20px;
 }
 .left img {
-  width: 200px;
+  width: 168px;
   transition: all 0.3s ease;
 }
 .container.scrolled .left img {
-  width: 190px;
+  width: 160px;
 }
 .left a {
   text-decoration: none;
@@ -185,6 +190,21 @@ onUnmounted(() => {
 .menu-item:hover {
   color: var(--blue);
   transform: scale(1.1);
+}
+.call {
+  background: var(--blue);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 20px;
 }
 @media screen and (max-width: 400px) {
   .container,

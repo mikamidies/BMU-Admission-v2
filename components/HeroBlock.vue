@@ -1,10 +1,10 @@
 <template>
   <div class="hero">
+    <div class="content">
+      <img src="/img/hero-4.png" alt="" />
+      <h1>Твой шаг к профессиональному росту и лидерству!</h1>
+    </div>
     <div class="wrapper">
-      <div class="content">
-        <img src="/img/hero-4.png" alt="" />
-        <h1>Твой шаг к профессиональному росту и лидерству!</h1>
-      </div>
       <div class="buttons">
         <NuxtLink to="/" class="button">
           Программа Foundation
@@ -26,10 +26,9 @@
 <style scoped>
 .hero {
   width: 100%;
-  height: 90vh;
+  height: auto;
   position: relative;
   overflow: hidden;
-  padding: 104px 20px 20px 20px;
 }
 img {
   position: absolute;
@@ -41,18 +40,15 @@ img {
   z-index: 1;
 }
 .wrapper {
-  height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  padding: 18px;
 }
-
 .content {
   position: relative;
   z-index: 2;
   width: 100%;
-  height: calc(100% - 132px);
-  border-radius: 8px;
+  height: 680px;
   overflow: hidden;
 }
 .content::after {
@@ -77,14 +73,14 @@ img {
   font-weight: 700;
   color: white;
   position: absolute;
-  bottom: 24px;
-  left: 24px;
+  bottom: 18px;
+  left: 18px;
   z-index: 2;
 }
 .buttons {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 8px;
+  gap: 12px;
 }
 .buttons a {
   width: 100%;
@@ -125,10 +121,6 @@ img {
   color: var(--blue);
 }
 @media screen and (max-width: 400px) {
-  .hero {
-    padding: 90px 18px 18px 18px;
-    height: 100vh;
-  }
   .content h1 {
     font-size: 28px;
   }
