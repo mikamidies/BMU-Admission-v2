@@ -9,13 +9,13 @@
     </div>
     <div class="wrapper">
       <div class="buttons">
-        <NuxtLink to="/" class="button">
+        <NuxtLink target="_blank" to="/bachelors" class="button">
           Программа Foundation
           <div class="icon">
             <Icon name="lucide:arrow-right" />
           </div>
         </NuxtLink>
-        <NuxtLink to="/" class="button">
+        <NuxtLink @click="scrollTo('program')" class="button">
           Программы для Магистратуры
           <div class="icon">
             <Icon name="lucide:arrow-right" />
@@ -26,6 +26,18 @@
   </div>
 </template>
 
+<script setup>
+let scrollHandler = null;
+
+const scrollTo = (id) => {
+  const element = document.getElementById(id);
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth" });
+  }
+  isMenuOpen.value = false;
+};
+</script>
+
 <style scoped>
 .hero {
   width: 100%;
@@ -33,6 +45,7 @@
   position: relative;
   overflow: hidden;
 }
+
 img {
   position: absolute;
   top: 0;

@@ -1,5 +1,6 @@
 <template>
   <section class="program">
+    <div class="anchor" id="program"></div>
     <div class="container">
       <h4 class="title">Программы магистратуры</h4>
       <div class="grid">
@@ -86,6 +87,11 @@ onMounted(() => {
 <style scoped>
 .program {
   overflow: hidden;
+}
+.anchor {
+  position: relative;
+  height: 1px;
+  top: -120px;
 }
 .container {
   padding: 0 18px;
