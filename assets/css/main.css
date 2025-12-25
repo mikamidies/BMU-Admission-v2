@@ -46,6 +46,12 @@
   --red: #780000;
   --border: #e0e0e0;
 
+  --palette-1: #011b40;
+  --palette-2: #0358e8;
+  --palette-3: #5cabf0;
+  --palette-4: #272d69;
+  --palette-5: #5d9ede;
+  --palette-6: #8ec7ff;
   --main-font: "Gilroy", sans-serif;
 }
 
@@ -212,6 +218,9 @@ body {
   cursor: pointer;
   z-index: 1000;
   width: calc(100% - 40px);
+}
+.bachelors-button {
+  background: var(--palette-2);
 }
 @media screen and (max-width: 1024px) {
   .container {

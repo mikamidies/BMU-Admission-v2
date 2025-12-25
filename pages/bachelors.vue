@@ -5,12 +5,12 @@
   <AboutBlock />
   <BenefitsBlock />
   <ProgramBlock />
-  <FacultyBlock />
+  <!-- <FacultyBlock /> -->
   <LifeBlock />
   <RequestForm />
   <transition name="fade">
     <button
-      class="fixed-button"
+      class="fixed-button bachelors-button"
       v-show="showButton"
       @click="scrollTo('request')"
     >
@@ -21,10 +21,27 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
+import TheHeader from "@/components/Bachelors/TheHeader.vue";
+import HeroBlock from "@/components/Bachelors/HeroBlock.vue";
+import PartnersBlock from "@/components/Bachelors/PartnersBlock.vue";
+import AboutBlock from "@/components/Bachelors/AboutBlock.vue";
+import BenefitsBlock from "@/components/Bachelors/BenefitsBlock.vue";
+import ProgramBlock from "@/components/Bachelors/ProgramBlock.vue";
+import LifeBlock from "@/components/Bachelors/LifeBlock.vue";
+import RequestForm from "@/components/Bachelors/RequestForm.vue";
 
 const showButton = ref(false);
 
 let scrollHandler = null;
+let requestSection = null;
+
+const updateButtonVisibility = () => {
+  const scrollY = window.scrollY || 0;
+  const requestTop = requestSection
+    ? requestSection.getBoundingClientRect().top + window.scrollY
+    : Infinity;
+  showButton.value = scrollY >= 80 && scrollY < requestTop;
+};
 
 const scrollTo = (id) => {
   const element = document.getElementById(id);
@@ -35,9 +52,9 @@ const scrollTo = (id) => {
 };
 
 onMounted(() => {
-  scrollHandler = () => {
-    showButton.value = window.scrollY >= 80;
-  };
+  requestSection = document.getElementById("life");
+  scrollHandler = updateButtonVisibility;
+  updateButtonVisibility();
   window.addEventListener("scroll", scrollHandler);
 });
 
