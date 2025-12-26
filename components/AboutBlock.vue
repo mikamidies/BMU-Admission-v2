@@ -14,12 +14,23 @@
         </div>
       </div>
       <div class="card card-third">
-        <p>
-          • ускорить карьерный рост<br />
-          • получить международную управленческую экспертизу<br />
-          • усилить свои позиции на рынке труда в Узбекистане и за его
-          пределами<br />
-        </p>
+        <div class="card card-third" ref="aboutRef">
+          <p class="fade-item">
+            <Icon name="lucide:check-circle" />
+            студентов, которые хотят уверенно подготовиться к университетскому
+            обучению
+          </p>
+          <p class="fade-item">
+            <Icon name="lucide:check-circle" />
+            развить академические навыки на английском языке и получить
+            международно признанный путь к бакалавриату.
+          </p>
+          <p class="fade-item">
+            <Icon name="lucide:check-circle" />
+            кто хочет повысить уровень владения английским языком до
+            университетского уровня
+          </p>
+        </div>
       </div>
     </div>
   </section>
@@ -34,6 +45,16 @@
   position: relative;
   overflow: hidden;
   border-radius: 8px;
+}
+.card p {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+.card span {
+  transform: translateY(8px);
+  color: var(--palette-2);
 }
 .card-first {
   height: 300px;
