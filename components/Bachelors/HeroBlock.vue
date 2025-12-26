@@ -1,7 +1,7 @@
 <template>
   <div class="hero">
     <div class="content" ref="contentRef">
-      <img ref="heroImgRef" src="/img/gallery/gal-hero.jpg" alt="" />
+      <img ref="heroImgRef" src="/img/gallery/gal-hero.JPG" alt="" />
       <h1 ref="headlineRef" v-html="currentHeadline"></h1>
     </div>
     <div class="wrapper">

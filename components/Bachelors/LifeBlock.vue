@@ -20,37 +20,37 @@ const slides = [
   {
     name: "Кампусная жизнь",
     images: [
-      "/img/gallery/gal-23.jpg",
-      "/img/gallery/gal-34.jpg",
-      "/img/gallery/gal-27.jpg",
-      "/img/gallery/gal-35.jpg",
+      "/img/gallery/gal-23.JPG",
+      "/img/gallery/gal-34.JPG",
+      "/img/gallery/gal-27.JPG",
+      "/img/gallery/gal-35.JPG",
     ],
   },
   {
     name: "Студенческие мероприятия",
     images: [
-      "/img/gallery/gal-31.jpg",
-      "/img/gallery/gal-32.jpg",
-      "/img/gallery/gal-36.jpg",
-      "/img/gallery/gal-33.jpg",
+      "/img/gallery/gal-31.JPG",
+      "/img/gallery/gal-32.JPG",
+      "/img/gallery/gal-36.JPG",
+      "/img/gallery/gal-33.JPG",
     ],
   },
   {
     name: "Жилье и питание",
     images: [
-      "/img/gallery/gal-24.jpg",
-      "/img/gallery/gal-21.jpg",
-      "/img/gallery/gal-13.jpg",
-      "/img/gallery/gal-37.jpg",
+      "/img/gallery/gal-24.JPG",
+      "/img/gallery/gal-21.JPG",
+      "/img/gallery/gal-13.JPG",
+      "/img/gallery/gal-37.JPG",
     ],
   },
   {
     name: "Путешествия и экскурсии",
     images: [
-      "/img/gallery/gal-10.jpg",
-      "/img/gallery/gal-8.jpg",
-      "/img/gallery/gal-7.jpg",
-      "/img/gallery/gal-6.jpg",
+      "/img/gallery/gal-10.JPG",
+      "/img/gallery/gal-8.JPG",
+      "/img/gallery/gal-7.JPG",
+      "/img/gallery/gal-6.JPG",
     ],
   },
 ];
