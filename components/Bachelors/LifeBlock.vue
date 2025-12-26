@@ -1,44 +1,116 @@
 <script setup>
-import { nextTick } from "vue";
+import { nextTick, onMounted, onBeforeUnmount, ref } from "vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { EffectFade, Autoplay } from "swiper/modules";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SplitText } from "gsap/SplitText";
 import "swiper/css";
 import "swiper/css/effect-fade";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const swiperRefs = ref([]);
+const lifeRef = ref(null);
+const gridRef = ref(null);
+const titleRef = ref(null);
+let gsapContext = null;
 
 const slides = [
   {
     name: "Кампусная жизнь",
-    images: ["/img/hero.jpg", "/img/photo-2.jpg"],
+    images: [
+      "/img/gallery/gal-23.jpg",
+      "/img/gallery/gal-34.jpg",
+      "/img/gallery/gal-27.jpg",
+      "/img/gallery/gal-35.jpg",
+    ],
   },
   {
     name: "Студенческие мероприятия",
-    images: ["/img/hero.jpg", "/img/photo-2.jpg"],
+    images: [
+      "/img/gallery/gal-31.jpg",
+      "/img/gallery/gal-32.jpg",
+      "/img/gallery/gal-36.jpg",
+      "/img/gallery/gal-33.jpg",
+    ],
   },
   {
     name: "Жилье и питание",
-    images: ["/img/hero.jpg", "/img/photo-2.jpg"],
+    images: [
+      "/img/gallery/gal-24.jpg",
+      "/img/gallery/gal-21.jpg",
+      "/img/gallery/gal-13.jpg",
+      "/img/gallery/gal-37.jpg",
+    ],
   },
   {
-    name: "Здоровье и благополучие",
-    images: ["/img/hero.jpg", "/img/photo-2.jpg"],
-  },
-  {
-    name: "Общежитие",
-    images: ["/img/hero.jpg", "/img/photo-2.jpg"],
+    name: "Путешествия и экскурсии",
+    images: [
+      "/img/gallery/gal-10.jpg",
+      "/img/gallery/gal-8.jpg",
+      "/img/gallery/gal-7.jpg",
+      "/img/gallery/gal-6.jpg",
+    ],
   },
 ];
+
+onMounted(async () => {
+  if (process.server) return;
+  await nextTick();
+
+  const items = gridRef.value?.querySelectorAll(".item");
+
+  gsapContext = gsap.context(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: lifeRef.value,
+        start: "top 100%",
+        toggleActions: "restart none restart none",
+      },
+    });
+
+    const title = titleRef.value;
+    if (title) {
+      const split = new SplitText(title, { type: "chars" });
+      tl.set(split.chars, { opacity: 0 }, 0);
+      tl.to(
+        split.chars,
+        {
+          opacity: 1,
+          duration: 0.2,
+          stagger: 0.05,
+          ease: "none",
+        },
+        0
+      );
+    }
+
+    if (items && items.length) {
+      tl.from(
+        items,
+        {
+          y: 64,
+          opacity: 0,
+          duration: 0.8,
+          ease: "power2.out",
+          stagger: 0.12,
+        },
+        0
+      );
+    }
+  }, lifeRef);
+});
+
+onBeforeUnmount(() => {
+  gsapContext && gsapContext.revert();
+});
 </script>
 
 <template>
   <section class="life" ref="lifeRef" id="life">
     <div class="container">
-      <h2 class="life__title title">Жизнь в BMU</h2>
+      <h2 class="life__title title" ref="titleRef">Жизнь в BMU</h2>
 
       <div class="grid" ref="gridRef">
         <div v-for="(slide, index) in slides" :key="index" class="item">
@@ -86,7 +158,7 @@ const slides = [
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(6, 1fr);
+  grid-template-rows: repeat(4, 1fr);
   gap: 4px;
 }
 .item {
@@ -131,6 +203,7 @@ const slides = [
   grid-column: 2 / 3;
   grid-row: 4 / 5;
   max-height: 160px;
+  min-height: 160px;
 }
 .item:nth-child(5) {
   grid-column: 1 / 3;

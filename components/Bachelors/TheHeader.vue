@@ -2,7 +2,6 @@
   <div class="container" :class="{ scrolled: isScrolled }">
     <div class="left">
       <NuxtLink to="/">
-        <img src="/public/img/white.svg" class="white" />
         <img src="/public/img/brand.svg" class="black" />
       </NuxtLink>
     </div>
@@ -206,18 +205,6 @@ onUnmounted(() => {
   transition: all 0.3s ease;
   color: white;
   font-size: 20px;
-}
-.black {
-  display: none;
-}
-.white {
-  display: block;
-}
-.container.scrolled .black {
-  display: block;
-}
-.container.scrolled .white {
-  display: none;
 }
 @media screen and (max-width: 400px) {
   .container,

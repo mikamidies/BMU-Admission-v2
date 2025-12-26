@@ -1,8 +1,8 @@
 <template>
   <section class="program">
     <div class="anchor" id="program"></div>
-    <div class="container">
-      <h4 class="title">Программы Бакалавриата</h4>
+    <div class="container" ref="programRef">
+      <h4 class="title" ref="titleRef">Информативный блок</h4>
       <div class="grid">
         <div v-for="(program, index) in programs" :key="index" class="item">
           <div class="header" @click="toggleAccordion(index)">
@@ -15,7 +15,6 @@
           <transition name="accordion">
             <div v-show="program.isOpen" class="body">
               <div class="txt" v-html="program.description"></div>
-              <img :src="program.img" />
             </div>
           </transition>
         </div>
@@ -25,63 +24,48 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, onBeforeUnmount } from "vue";
+import { useNuxtApp } from "#app";
+
+const programRef = ref(null);
+let ScrollTriggerPlugin = null;
+let gsapContext = null;
+let SplitTextPlugin = null;
 
 const programs = ref([
   {
-    img: "/img/dir-1.webp",
-    name: "BSc in Accounting and Finance",
-    description:
-      "Степень бакалавра (с отличием) в области бухгалтерского учета и финансов в BMU, подтвержденная QMU, готовит студентов к ACCA, карьере на местном и зарубежном уровнях",
+    name: "Программа Foundation",
+    description: "",
     isOpen: false,
   },
   {
-    img: "/img/dir-2.webp",
-    name: "BSc in Management Information Systems",
+    name: "Программы Бакалавриата",
     description:
       "Степень бакалавра с отличием в области MIS и бизнес-аналитики в BMU: сочетание технологий и бизнеса, практические проекты, инструменты и возможности карьерного роста по всему миру",
     isOpen: false,
   },
   {
-    img: "/img/dir-3.webp",
-    name: "BSc in Banking and Finance",
+    name: "Гранты и стипендии",
     description:
       "Степень бакалавра (с отличием) в области банковского дела и финансов в BMU, подтвержденная QMU: соответствует требованиям CFA, готовит выпускников к карьере в сфере банковского дела и финансов по всему миру",
     isOpen: false,
   },
   {
-    img: "/img/dir-4.webp",
-    name: "BBA with Project Management",
+    name: "Общежитие для студентов",
     description:
       "BBA с PM: международная степень, сочетающая в себе основы бизнеса и навыки управления проектами для карьерного роста в частном и государственном секторах",
     isOpen: false,
   },
   {
-    img: "/img/dir-5.webp",
-    name: "BBA with Digital Marketing and e-Business",
+    name: "Cambridge Dream",
     description:
-      "BBA Digital Marketing & E-Business: международная степень, сочетающая основы бизнеса с навыками цифрового и электронного бизнеса для карьерного роста",
+      "BBA с PM: международная степень, сочетающая в себе основы бизнеса и навыки управления проектами для карьерного роста в частном и государственном секторах",
     isOpen: false,
   },
   {
-    img: "/img/dir-5.webp",
-    name: "BBA with Logistics and Supply Chain Management",
+    name: "Процесс поступления",
     description:
-      "BBA Logistics & Supply Chain: международная степень, объединяющая основы бизнеса с опытом в области логистики и цепочки поставок для карьерного роста",
-    isOpen: false,
-  },
-  {
-    img: "/img/dir-5.webp",
-    name: "BBA with Economics and Sustainable Development",
-    description:
-      "BBA Economics & Sustainability: международная степень, сочетающая основы бизнеса с экономикой и устойчивым развитием для успешной карьеры",
-    isOpen: false,
-  },
-  {
-    img: "/img/dir-5.webp",
-    name: "BBA with Communication and Public Relations",
-    description:
-      "Степень бакалавра в области коммуникаций и связей с общественностью: международное образование, сочетающее основы бизнеса с опытом в области коммуникаций и PR для динамичной карьеры",
+      "BBA с PM: международная степень, сочетающая в себе основы бизнеса и навыки управления проектами для карьерного роста в частном и государственном секторах",
     isOpen: false,
   },
 ]);
@@ -102,6 +86,60 @@ const applyNow = () => {
 
 onMounted(() => {
   window.applyNow = applyNow;
+
+  if (process.server) return;
+  (async () => {
+    const moduleTrigger = await import("gsap/ScrollTrigger");
+    const moduleSplit = await import("gsap/SplitText");
+    ScrollTriggerPlugin = moduleTrigger.ScrollTrigger || moduleTrigger.default;
+    SplitTextPlugin = moduleSplit.SplitText || moduleSplit.default;
+
+    const { $gsap } = useNuxtApp();
+    $gsap.registerPlugin(ScrollTriggerPlugin, SplitTextPlugin);
+
+    await import("vue").then(({ nextTick }) => nextTick());
+
+    const items = programRef.value?.querySelectorAll(".item");
+    if (!items || !items.length) return;
+
+    gsapContext = $gsap.context(() => {
+      const tl = $gsap.timeline({
+        scrollTrigger: {
+          trigger: programRef.value,
+          start: "top 75%",
+          toggleActions: "restart none restart none",
+        },
+      });
+      tl.from(items, {
+        y: 32,
+        opacity: 0,
+        duration: 0.2,
+        ease: "power2.out",
+        stagger: 0.12,
+      });
+
+      // Typewriter for title
+      const title = programRef.value?.querySelector(".title");
+      if (title) {
+        const split = new SplitTextPlugin(title, { type: "chars" });
+        tl.set(split.chars, { opacity: 0 }, 0);
+        tl.to(
+          split.chars,
+          {
+            opacity: 1,
+            duration: 0.05,
+            stagger: 0.05,
+            ease: "none",
+          },
+          0
+        );
+      }
+    }, programRef);
+  })();
+});
+
+onBeforeUnmount(() => {
+  gsapContext && gsapContext.revert();
 });
 </script>
 

@@ -1,7 +1,7 @@
 <template>
   <section class="benefits" ref="benefitsRef">
     <div class="container">
-      <h4 class="title">Почему выбрать BMU?</h4>
+      <h4 class="title" ref="titleRef">Почему BMU?</h4>
       <div class="grid" ref="gridRef">
         <div class="item">
           <h5 class="name">Международное британское образование</h5>
@@ -10,7 +10,7 @@
             университетами и образовательными институтами, предлагая программы,
             разработанные по международным академическим стандартам
           </p>
-          <img src="/public/img/ben-1.png" />
+          <img src="/public/img/bach-ben-5.jpg" />
         </div>
         <div class="item">
           <h5 class="name">Международная команда преподавателей</h5>
@@ -21,7 +21,7 @@
             профессиональную коммуникацию и готовность работать в международных
             командах.
           </p>
-          <img src="/public/img/ben-2.png" />
+          <img src="/public/img/bach-ben-2.jpg" />
         </div>
         <div class="item">
           <h5 class="name">Практика, кейсы и ключевые навыки</h5>
@@ -31,7 +31,7 @@
             аргументации, структурного мышления, публичных выступлений и
             профессиональной коммуникации.
           </p>
-          <img src="/public/img/ben-3.png" />
+          <img src="/public/img/bach-ben-3.jpg" />
         </div>
         <div class="item">
           <h5 class="name">Современный кампус и студенческая среда</h5>
@@ -41,7 +41,7 @@
             тренажёрный зал и площадка для падела, которые помогают поддерживать
             баланс между учёбой, продуктивностью и активным досугом.
           </p>
-          <img src="/public/img/ben-4.png" />
+          <img src="/public/img/bach-ben-4.jpg" />
         </div>
       </div>
       <p class="note">
@@ -55,11 +55,13 @@
 <script setup>
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SplitText } from "gsap/SplitText";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const benefitsRef = ref(null);
 const gridRef = ref(null);
+const titleRef = ref(null);
 
 onMounted(() => {
   console.log("onMounted triggered");
@@ -97,6 +99,25 @@ onMounted(() => {
     ScrollTrigger.getAll().length
   );
   ScrollTrigger.refresh();
+
+  const title = titleRef.value;
+  if (title) {
+    const split = new SplitText(title, { type: "chars" });
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: benefitsRef.value,
+        start: "top 75%",
+        toggleActions: "restart none restart none",
+      },
+    });
+    tl.set(split.chars, { opacity: 0 });
+    tl.to(split.chars, {
+      opacity: 1,
+      duration: 0.05,
+      stagger: 0.05,
+      ease: "none",
+    });
+  }
 });
 
 onUnmounted(() => {
@@ -133,12 +154,6 @@ onUnmounted(() => {
   justify-content: space-between;
   position: relative;
 }
-.item:nth-child(1) img {
-  transform: translateY(120px);
-}
-.item:nth-child(3) img {
-  transform: translateY(40px);
-}
 .item::after {
   content: "";
   position: absolute;
@@ -154,39 +169,25 @@ onUnmounted(() => {
   bottom: 0;
   left: 0;
   z-index: 1;
+  opacity: 0.7;
 }
-.item:nth-child(2) {
-  background: var(--palette-2);
-}
-.item:nth-child(2)::after {
+.item::before {
+  content: "";
+  position: absolute;
+  background: #ffffff;
   background: linear-gradient(
     180deg,
     rgba(255, 255, 255, 0) 0%,
     rgba(255, 255, 255, 0) 0%,
-    var(--palette-2) 100%
+    var(--palette-1) 100%
   );
-}
-.item:nth-child(3) {
-  background: var(--palette-3);
-}
-.item:nth-child(3)::after {
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0) 0%,
-    var(--palette-3) 100%
-  );
-}
-.item:nth-child(4) {
-  background: var(--palette-4);
-}
-.item:nth-child(4)::after {
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0) 0%,
-    var(--palette-4) 100%
-  );
+  transform: rotate(180deg);
+  width: 100%;
+  height: 60%;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  opacity: 0.7;
 }
 .name {
   font-size: 28px;
@@ -199,7 +200,7 @@ onUnmounted(() => {
 }
 img {
   width: 100%;
-  height: auto;
+  height: 100% !important;
   position: absolute;
   bottom: 0;
   left: 0;

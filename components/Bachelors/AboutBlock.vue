@@ -8,19 +8,74 @@
       </div> -->
       <div class="card card-sec">
         <div class="content">
-          <h4 class="title">Foundation Programme BMU создан для:</h4>
+          <h4 class="title">Программа Foundation от BMU создан для:</h4>
         </div>
       </div>
-      <div class="card card-third">
-        <p>
+      <div class="card card-third" ref="aboutRef">
+        <p class="fade-item">
+          <Icon name="lucide:check-circle" />
           студентов, которые хотят уверенно подготовиться к университетскому
-          обучению, развить академические навыки на английском языке и получить
+          обучению
+        </p>
+        <p class="fade-item">
+          <Icon name="lucide:check-circle" />
+          развить академические навыки на английском языке и получить
           международно признанный путь к бакалавриату.
+        </p>
+        <p class="fade-item">
+          <Icon name="lucide:check-circle" />
+          кто хочет повысить уровень владения английским языком до
+          университетского уровня
         </p>
       </div>
     </div>
   </section>
 </template>
+
+<script setup>
+import { nextTick, onBeforeUnmount, onMounted, ref } from "vue";
+import { useNuxtApp } from "#app";
+
+const aboutRef = ref(null);
+let ScrollTriggerPlugin = null;
+let gsapContext = null;
+
+onMounted(async () => {
+  if (process.server) return;
+  const moduleTrigger = await import("gsap/ScrollTrigger");
+  ScrollTriggerPlugin = moduleTrigger.ScrollTrigger || moduleTrigger.default;
+
+  const { $gsap } = useNuxtApp();
+  $gsap.registerPlugin(ScrollTriggerPlugin);
+
+  await nextTick();
+  const items = aboutRef.value?.querySelectorAll(".fade-item");
+  const title = aboutRef.value?.querySelector(".title");
+  const allElements = title ? [title, ...Array.from(items)] : Array.from(items);
+  if (!allElements || !allElements.length) return;
+
+  gsapContext = $gsap.context(() => {
+    const tl = $gsap.timeline({
+      scrollTrigger: {
+        trigger: aboutRef.value,
+        start: "top 75%",
+        toggleActions: "restart none restart none",
+      },
+    });
+    tl.from(allElements, {
+      y: 32,
+      opacity: 0,
+      duration: 0.2,
+      ease: "power2.out",
+      stagger: 0.12,
+    });
+  }, aboutRef);
+});
+
+onBeforeUnmount(() => {
+  gsapContext && gsapContext.revert();
+});
+</script>
 
 <style scoped>
 .container {
@@ -61,13 +116,23 @@
   z-index: 2;
 }
 .title {
-  font-size: 32px;
-  font-weight: 700;
-  line-height: 110%;
+  font-size: 28px;
+  font-weight: 900;
+  line-height: 120%;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: var(--black);
+  color: var(--palette-1);
   margin-bottom: 16px;
+}
+.card p {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+.card span {
+  transform: translateY(8px);
+  color: var(--palette-2);
 }
 @media screen and (max-width: 400px) {
   .container {
