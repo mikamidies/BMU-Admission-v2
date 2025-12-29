@@ -17,18 +17,20 @@
         <div class="card card-third" ref="aboutRef">
           <p class="fade-item">
             <Icon name="lucide:check-circle" />
-            студентов, которые хотят уверенно подготовиться к университетскому
-            обучению
+            ускорить карьерный рост
           </p>
           <p class="fade-item">
             <Icon name="lucide:check-circle" />
-            развить академические навыки на английском языке и получить
-            международно признанный путь к бакалавриату.
+            получить международную управленческую экспертизу
           </p>
           <p class="fade-item">
             <Icon name="lucide:check-circle" />
-            кто хочет повысить уровень владения английским языком до
-            университетского уровня
+            усилить свои позиции на рынке труда в Узбекистане и за его пределами
+          </p>
+          <p class="last">
+            Мы объединяем британские академические стандарты,
+            практико-ориентированное обучение и глубокое понимание локального и
+            международного бизнес-контекста.
           </p>
         </div>
       </div>
@@ -55,6 +57,14 @@
 .card span {
   transform: translateY(8px);
   color: var(--palette-2);
+}
+.last {
+  font-size: 18px;
+  line-height: 1.4;
+  font-weight: 500;
+  color: var(--black);
+  opacity: 0.9;
+  margin-top: 16px;
 }
 .card-first {
   height: 300px;

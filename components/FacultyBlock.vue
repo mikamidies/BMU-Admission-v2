@@ -6,25 +6,32 @@ import { ref } from "vue";
 
 const faculties = ref([
   {
-    title: "Юрий Локтионов",
-    description: "Massachusetts Institute of Technology ",
-    image: "/img/team-1.webp",
-    quote:
-      "Я рекомендую эту программу всем, кто стремится к академическому и личностному росту. Это уникальная возможность учиться у лучших и расширять свои горизонты.",
-  },
-  {
-    title: "Лиолень Хендерсон",
-    description: "Stanford University",
+    title: "Лионель Хендерсон, MBA, DBA",
+    description: "Deputy Rector (Postgraduate and Internationalisation)",
     image: "/img/team-2.webp",
     quote:
-      "Я гарантирую, что вы получите незабываемый опыт обучения. Вкладывая в себя, вы инвестируете в свое будущее. Эта программа стоит каждой минуты вашего времени.",
+      "Международный эксперт в сфере бизнес-образования с более чем 20-летним опытом преподавания и руководства в ведущих университетах Великобритании и Азии. Возглавлял Школу бизнеса и менеджмента в The Sino-British College (Шанхай) — совместном проекте Университета Шанхая и девяти британских вузов.",
   },
   {
-    title: "Кристиан Капоне",
+    title: "Тимур Умаров, PhD",
+    description: "Stanford University",
+    image: "/img/team-6.webp",
+    quote:
+      "Признанный эксперт в сфере ИТ-образования и международной аккредитации, с более чем 25-летним опытом в академической среде. Свой преподавательский путь он начал в США, в Northern Arizona University, где вел занятия по дискретной математике, инженерии и другим техническим дисциплинам. Профессор Умаров получил степень PhD в области Computer Science в King’s College London (UK), а также является официальным экспертом ABET.",
+  },
+  {
+    title: "Кристиан Капоне, MBA, PMP",
     description: "California Institute of Technology",
     image: "/img/team-4.webp",
     quote:
-      "Для личностного и академического роста эта программа просто необходима. Вы не пожалеете о своем выборе. Это инвестиция в ваше будущее.",
+      "Эксперт в области управления проектами с более чем 30-летним опытом руководства проектами и портфелями в странах Центральной Азии и Европы. Он преподаёт и консультирует в таких направлениях, как современные методы реализации проектов (предиктивный, agile и гибридный подходы), управление рисками на основе данных и управление освоением бюджета. Является сертифицированным экспертом PMP. ",
+  },
+  {
+    title: "Джон Джинкер, DBA",
+    description: "California Institute of Technology",
+    image: "/img/team-7.webp",
+    quote:
+      "Опытный специалист в области бизнеса и образования, с более чем 20-летним стажем работы в университетах США, Китая, Узбекистана и Кыргызстана. Он имеет степень DBA по маркетингу, MBA в области менеджмента, а также два бакалавра — по менеджменту и логистике. Джон Джинкнер преподавал в Гарвардской бизнес-школе и других ведущих вузах, читая курсы по маркетингу, стратегии, управлению цепями поставок и бизнес-симуляциям. ",
   },
 ]);
 </script>
@@ -32,7 +39,7 @@ const faculties = ref([
 <template>
   <section class="faculty">
     <div class="container">
-      <h2 class="title">Представители факультета</h2>
+      <h2 class="title">Проподы:</h2>
 
       <ClientOnly>
         <Swiper
@@ -68,13 +75,35 @@ const faculties = ref([
         </Swiper>
       </ClientOnly>
     </div>
+
+    <div class="container">
+      <div class="offer">
+        <h2 class="title">
+          Магистратура - это инвестиция в знания, статус и карьеру!
+        </h2>
+        <Icon name="lucide:arrow-down" />
+      </div>
+    </div>
   </section>
 </template>
 
 <style scoped>
 .faculty {
-  padding: 60px 0;
+  padding: 60px 0 0 0;
   overflow: hidden;
+}
+.offer {
+  display: grid;
+  grid-template-columns: auto 24px;
+  justify-content: center;
+  align-items: center;
+}
+.offer .title {
+  font-size: 32px;
+  line-height: 120%;
+  font-weight: 700;
+  color: var(--blue);
+  margin-bottom: 40px;
 }
 .container {
   padding: 0 18px;
@@ -92,6 +121,7 @@ const faculties = ref([
   padding: 32px 16px;
   border-radius: 8px;
   overflow: hidden;
+  margin-bottom: 40px;
 }
 .swiper-slide {
   height: auto !important;
@@ -131,7 +161,8 @@ const faculties = ref([
   transform: scale(1.1);
 }
 .top {
-  display: flex;
+  display: grid;
+  grid-template-columns: 70px auto;
   align-items: center;
   padding: 18px 18px 0 18px;
   gap: 16px;
