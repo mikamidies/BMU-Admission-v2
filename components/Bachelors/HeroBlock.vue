@@ -199,11 +199,11 @@ img {
     180deg,
     rgba(255, 255, 255, 0) 0%,
     rgba(255, 255, 255, 0) 0%,
-    rgba(0, 0, 0, 0.4) 100%
+    rgba(0, 0, 0, 0.6) 100%
   );
   width: 100%;
-  height: 100%;
-  top: 0;
+  height: 30%;
+  bottom: 0;
   left: 0;
   z-index: 1;
 }

@@ -165,7 +165,7 @@ onUnmounted(() => {
     var(--palette-1) 100%
   );
   width: 100%;
-  height: 60%;
+  height: 30%;
   bottom: 0;
   left: 0;
   z-index: 1;
@@ -183,7 +183,7 @@ onUnmounted(() => {
   );
   transform: rotate(180deg);
   width: 100%;
-  height: 60%;
+  height: 20%;
   top: 0;
   left: 0;
   z-index: 2;
