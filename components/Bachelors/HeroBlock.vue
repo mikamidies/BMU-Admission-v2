@@ -97,7 +97,6 @@ const initParallax = () => {
       end: "bottom top",
       scrub: true,
       invalidateOnRefresh: true,
-      markers: true,
     },
   });
   imageScrollTrigger = tween.scrollTrigger;

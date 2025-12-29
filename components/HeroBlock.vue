@@ -10,13 +10,13 @@
     <div class="wrapper">
       <div class="buttons">
         <NuxtLink target="_blank" to="/bachelors" class="button">
-          Программа Foundation
+          Программы Бакалавриата
           <div class="icon">
             <Icon name="lucide:arrow-right" />
           </div>
         </NuxtLink>
         <NuxtLink @click="scrollTo('program')" class="button">
-          Программы для Магистратуры
+          Программы Магистратуры
           <div class="icon">
             <Icon name="lucide:arrow-right" />
           </div>

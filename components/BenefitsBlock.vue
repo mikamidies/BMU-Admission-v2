@@ -184,14 +184,14 @@ onUnmounted(() => {
   );
 }
 .item:nth-child(4) {
-  background: var(--black);
+  background: var(--palette-4);
 }
 .item:nth-child(4)::after {
   background: linear-gradient(
     180deg,
     rgba(255, 255, 255, 0) 0%,
     rgba(255, 255, 255, 0) 0%,
-    var(--black) 100%
+    var(--palette-4) 100%
   );
 }
 .name {
