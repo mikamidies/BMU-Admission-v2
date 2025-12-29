@@ -26,33 +26,6 @@ const slides = [
       "/img/gallery/gal-35.JPG",
     ],
   },
-  {
-    name: "Студенческие мероприятия",
-    images: [
-      "/img/gallery/gal-31.JPG",
-      "/img/gallery/gal-32.JPG",
-      "/img/gallery/gal-36.JPG",
-      "/img/gallery/gal-33.JPG",
-    ],
-  },
-  {
-    name: "Жилье и питание",
-    images: [
-      "/img/gallery/gal-24.JPG",
-      "/img/gallery/gal-21.JPG",
-      "/img/gallery/gal-13.JPG",
-      "/img/gallery/gal-37.JPG",
-    ],
-  },
-  {
-    name: "Путешествия и экскурсии",
-    images: [
-      "/img/gallery/gal-10.JPG",
-      "/img/gallery/gal-8.JPG",
-      "/img/gallery/gal-7.JPG",
-      "/img/gallery/gal-6.JPG",
-    ],
-  },
 ];
 
 onMounted(async () => {
@@ -122,10 +95,10 @@ onBeforeUnmount(() => {
               :loop="true"
               :modules="[Autoplay]"
               :autoplay="{
-                delay: index * 2000 + 1000,
+                delay: 3000,
                 disableOnInteraction: false,
               }"
-              :speed="700"
+              :speed="1000"
             >
               <SwiperSlide
                 v-for="(img, imgIndex) in slide.images"
@@ -158,7 +131,6 @@ onBeforeUnmount(() => {
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(4, 1fr);
   gap: 4px;
 }
 .item {
@@ -221,13 +193,13 @@ onBeforeUnmount(() => {
 }
 .name {
   position: absolute;
-  bottom: 16px;
-  left: 16px;
+  bottom: 20px;
+  left: 20px;
   z-index: 10;
   color: #fff;
   border-radius: 4px;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 20px;
+  font-weight: 600;
 }
 
 @media screen and (max-width: 400px) {
