@@ -14,7 +14,7 @@
       v-show="showButton"
       @click="scrollTo('request')"
     >
-      Узнать больше
+      Пройти Регистрацию
     </button>
   </transition>
 </template>

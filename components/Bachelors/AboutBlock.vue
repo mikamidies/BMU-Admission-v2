@@ -8,24 +8,15 @@
       </div> -->
       <div class="card card-sec">
         <div class="content">
-          <h4 class="title">Программа Foundation от BMU создан для:</h4>
+          <h4 class="title">British Management University -</h4>
         </div>
       </div>
       <div class="card card-third" ref="aboutRef">
         <p class="fade-item">
           <Icon name="lucide:check-circle" />
-          студентов, которые хотят уверенно подготовиться к университетскому
-          обучению
-        </p>
-        <p class="fade-item">
-          <Icon name="lucide:check-circle" />
-          развить академические навыки на английском языке и получить
-          международно признанный путь к бакалавриату.
-        </p>
-        <p class="fade-item">
-          <Icon name="lucide:check-circle" />
-          кто хочет повысить уровень владения английским языком до
-          университетского уровня
+          Это ваш путь к успешной международной карьере. Обучаясь на наших
+          программах бакалавриата, вы получаете британское образование мирового
+          уровня!
         </p>
       </div>
     </div>

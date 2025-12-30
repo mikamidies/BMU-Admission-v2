@@ -9,14 +9,6 @@ const partnersRef = ref(null);
 let ScrollTriggerPlugin = null;
 let gsapContext = null;
 
-const partners = [
-  { name: "Partner 1", logo: "/img/part-1.png" },
-  { name: "Partner 2", logo: "/img/part-2.png" },
-  { name: "Partner 3", logo: "/img/part-3.png" },
-  { name: "Partner 4", logo: "/img/part-4.png" },
-  { name: "Partner 5", logo: "/img/part-5.png" },
-];
-
 onMounted(async () => {
   if (process.server) return;
   const moduleTrigger = await import("gsap/ScrollTrigger");
@@ -45,33 +37,23 @@ onBeforeUnmount(() => {
 
 <template>
   <section class="partners" ref="partnersRef">
-    <Swiper
-      :slides-per-view="2.5"
-      :space-between="24"
-      :loop="true"
-      :centered-slides="true"
-      :modules="[Autoplay]"
-      :autoplay="{
-        delay: 0,
-        disableOnInteraction: false,
-        pauseOnMouseEnter: false,
-      }"
-      :speed="6500"
-      :allow-touch-move="false"
-      class="partners-swiper"
-    >
-      <SwiperSlide v-for="(partner, index) in partners" :key="index">
+    <div class="container">
+      <h4 class="title">Аккредитации и Признание</h4>
+      <div class="items">
         <div class="item">
-          <img :src="partner.logo" :alt="partner.name" />
+          <img src="/img/part-1.png" alt="AQA" />
         </div>
-      </SwiperSlide>
-    </Swiper>
+        <div class="item">
+          <img src="/img/part-2.png" alt="AQA" />
+        </div>
+      </div>
+    </div>
   </section>
 </template>
 
 <style scoped>
 .partners {
-  padding: 0 0 24px 0;
+  padding: 24px 0 24px 0;
   background: var(--light-bg);
 }
 .item {
@@ -84,5 +66,23 @@ onBeforeUnmount(() => {
   width: 100%;
   height: 80px;
   object-fit: contain;
+}
+.text p {
+  font-size: 18px;
+  line-height: 1.4;
+  font-weight: 500;
+  color: var(--black);
+  opacity: 0.9;
+}
+.items {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--blue);
+  margin-bottom: 16px;
 }
 </style>

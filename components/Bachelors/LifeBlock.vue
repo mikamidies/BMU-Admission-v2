@@ -27,11 +27,11 @@ const slides = [
   },
   {
     name: "Учебные пространства",
-    image: "/img/gallery/gal-03.jpg",
+    image: "/img/gallery/gal-04.jpg",
   },
   {
     name: "Спорт и активности",
-    image: "/img/gallery/gal-04.jpg",
+    image: "/img/gallery/gal-03.jpg",
   },
   {
     name: "Библиотека и зоны отдыха",
@@ -126,9 +126,7 @@ onBeforeUnmount(() => {
 
     <div class="container">
       <div class="offer">
-        <h2 class="title">
-          Магистратура - это инвестиция в знания, статус и карьеру!
-        </h2>
+        <h2 class="title">Приём заявок уже открыт!</h2>
         <Icon name="lucide:arrow-down" />
       </div>
     </div>

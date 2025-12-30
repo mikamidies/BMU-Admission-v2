@@ -1,7 +1,7 @@
 <template>
   <section class="benefits" ref="benefitsRef">
     <div class="container">
-      <h4 class="title" ref="titleRef">Почему выбрать BMU?</h4>
+      <h4 class="title" ref="titleRef">Почему BMU?</h4>
       <div class="grid" ref="gridRef">
         <div class="item">
           <h5 class="name">Международное британское образование</h5>
@@ -10,7 +10,7 @@
             университетами и образовательными институтами, предлагая программы,
             разработанные по международным академическим стандартам
           </p>
-          <img src="/public/img/ben-1.png" />
+          <img src="/public/img/ben-diploma.JPG" />
         </div>
         <div class="item">
           <h5 class="name">Международная команда преподавателей</h5>
@@ -21,7 +21,7 @@
             профессиональную коммуникацию и готовность работать в международных
             командах.
           </p>
-          <img src="/public/img/ben-2.png" />
+          <img src="/public/img/bach-ben-0.JPG" />
         </div>
         <div class="item">
           <h5 class="name">Практика, кейсы и ключевые навыки</h5>
@@ -31,7 +31,7 @@
             аргументации, структурного мышления, публичных выступлений и
             профессиональной коммуникации.
           </p>
-          <img src="/public/img/ben-3.png" />
+          <img src="/public/img/gallery/gal-25.JPG" />
         </div>
         <div class="item">
           <h5 class="name">Современный кампус и студенческая среда</h5>
@@ -41,7 +41,7 @@
             тренажёрный зал и площадка для падела, которые помогают поддерживать
             баланс между учёбой, продуктивностью и активным досугом.
           </p>
-          <img src="/public/img/ben-4.png" />
+          <img src="/public/img/camp-3.jpg" />
         </div>
       </div>
       <p class="note">
@@ -154,12 +154,6 @@ onUnmounted(() => {
   justify-content: space-between;
   position: relative;
 }
-.item:nth-child(1) img {
-  transform: translateY(120px);
-}
-.item:nth-child(3) img {
-  transform: translateY(40px);
-}
 .item::after {
   content: "";
   position: absolute;
@@ -168,52 +162,32 @@ onUnmounted(() => {
     180deg,
     rgba(255, 255, 255, 0) 0%,
     rgba(255, 255, 255, 0) 0%,
-    var(--blue) 100%
+    var(--palette-1) 100%
   );
   width: 100%;
-  height: 60%;
+  height: 50%;
   bottom: 0;
   left: 0;
   z-index: 1;
+  pointer-events: none;
 }
-.item:nth-child(2) {
-  background: var(--biege);
-}
-.item:nth-child(2)::after {
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0) 0%,
-    var(--biege) 100%
-  );
-}
-.item:nth-child(2) .txt {
-  color: #000;
-}
-.item:nth-child(2) .name {
-  color: #000;
-}
-.item:nth-child(3) {
-  background: var(--red);
-}
-.item:nth-child(3)::after {
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0) 0%,
-    var(--red) 100%
-  );
-}
-.item:nth-child(4) {
-  background: var(--palette-1);
-}
-.item:nth-child(4)::after {
+.item::before {
+  content: "";
+  position: absolute;
+  background: #ffffff;
   background: linear-gradient(
     180deg,
     rgba(255, 255, 255, 0) 0%,
     rgba(255, 255, 255, 0) 0%,
     var(--palette-1) 100%
   );
+  transform: rotate(180deg);
+  width: 100%;
+  height: 30%;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  pointer-events: none;
 }
 .name {
   font-size: 28px;
@@ -226,7 +200,7 @@ onUnmounted(() => {
 }
 img {
   width: 100%;
-  height: auto;
+  height: 100%;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -247,10 +221,6 @@ img {
   bottom: 0;
   left: 0;
   z-index: 1;
-}
-.item:nth-child(2) img,
-.item:nth-child(4) img {
-  height: 90%;
 }
 .note {
   margin: 24px 0;

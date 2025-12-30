@@ -2,8 +2,7 @@
   <section id="request" class="request-form">
     <div class="container">
       <h2 class="title">
-        Хотите больше узнать о BMU курсах? Оставьте заявку — <br />
-        и мы перезвоним:
+        Хотите больше узнать о BMU курсах? Оставьте заявку и мы перезвоним:
       </h2>
       <form @submit.prevent="submitForm" class="form">
         <div class="form-item">
@@ -128,10 +127,10 @@ const submitForm = () => {
   margin: 0 auto;
 }
 .title {
-  font-size: 28px;
-  line-height: 120%;
+  font-size: 20px;
+  line-height: 130%;
   font-weight: 700;
-  margin-bottom: 40px;
+  margin-bottom: 24px;
 }
 .sub {
   font-size: 16px;
