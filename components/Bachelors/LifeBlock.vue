@@ -19,12 +19,23 @@ let gsapContext = null;
 const slides = [
   {
     name: "Кампусная жизнь",
-    images: [
-      "/img/gallery/gal-23.JPG",
-      "/img/gallery/gal-34.JPG",
-      "/img/gallery/gal-27.JPG",
-      "/img/gallery/gal-35.JPG",
-    ],
+    image: "/img/gallery/gal-01.jpg",
+  },
+  {
+    name: "Студенческие мероприятия",
+    image: "/img/gallery/gal-02.jpg",
+  },
+  {
+    name: "Учебные пространства",
+    image: "/img/gallery/gal-03.jpg",
+  },
+  {
+    name: "Спорт и активности",
+    image: "/img/gallery/gal-04.jpg",
+  },
+  {
+    name: "Библиотека и зоны отдыха",
+    image: "/img/gallery/gal-05.jpg",
   },
 ];
 
@@ -86,29 +97,39 @@ onBeforeUnmount(() => {
       <h2 class="life__title title" ref="titleRef">Жизнь в BMU</h2>
 
       <div class="grid" ref="gridRef">
-        <div v-for="(slide, index) in slides" :key="index" class="item">
-          <h5 class="name">{{ slide.name }}</h5>
-          <ClientOnly>
-            <Swiper
-              ref="swiperRefs"
-              :slides-per-view="1"
-              :loop="true"
-              :modules="[Autoplay]"
-              :autoplay="{
-                delay: 3000,
-                disableOnInteraction: false,
-              }"
-              :speed="1000"
+        <ClientOnly>
+          <Swiper
+            ref="swiperRefs"
+            :slides-per-view="1"
+            :loop="true"
+            :modules="[Autoplay]"
+            :autoplay="{
+              delay: 3000,
+              disableOnInteraction: false,
+            }"
+            :speed="1000"
+            :space-between="12"
+            class="grid-swiper"
+          >
+            <SwiperSlide
+              v-for="(slide, index) in slides"
+              :key="index"
+              class="item"
             >
-              <SwiperSlide
-                v-for="(img, imgIndex) in slide.images"
-                :key="imgIndex"
-              >
-                <img :src="img" alt="" />
-              </SwiperSlide>
-            </Swiper>
-          </ClientOnly>
-        </div>
+              <h5 class="name">{{ slide.name }}</h5>
+              <img :src="slide.image" alt="" />
+            </SwiperSlide>
+          </Swiper>
+        </ClientOnly>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="offer">
+        <h2 class="title">
+          Магистратура - это инвестиция в знания, статус и карьеру!
+        </h2>
+        <Icon name="lucide:arrow-down" />
       </div>
     </div>
   </section>
@@ -118,6 +139,34 @@ onBeforeUnmount(() => {
 .life {
   padding: 40px 0;
   overflow: hidden;
+}
+.offer {
+  padding-top: 40px;
+  display: grid;
+  grid-template-columns: auto 80px;
+  justify-content: center;
+  align-items: center;
+}
+.offer .title {
+  font-size: 28px;
+  line-height: 120%;
+  font-weight: 700;
+  color: var(--blue);
+  margin-bottom: 0;
+}
+.offer span {
+  font-size: 80px;
+  color: var(--palette-3);
+  animation: bounce 2s infinite;
+}
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
 }
 .container {
   padding: 0 18px;
@@ -130,16 +179,15 @@ onBeforeUnmount(() => {
 }
 .grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 4px;
 }
 .item {
   min-width: 0;
   position: relative;
-  height: 100%;
   width: 100%;
-  max-height: 324px;
-  border-radius: 4px;
+  height: 324px;
+  border-radius: 8px;
   overflow: hidden;
 }
 .item::after {
@@ -169,13 +217,10 @@ onBeforeUnmount(() => {
 .item:nth-child(3) {
   grid-column: 2 / 3;
   grid-row: 3 / 4;
-  max-height: 160px;
 }
 .item:nth-child(4) {
   grid-column: 2 / 3;
   grid-row: 4 / 5;
-  max-height: 160px;
-  min-height: 160px;
 }
 .item:nth-child(5) {
   grid-column: 1 / 3;
@@ -185,6 +230,7 @@ onBeforeUnmount(() => {
   pointer-events: none;
   height: 100%;
   width: 100%;
+  border-radius: 8px;
 }
 .swiper-slide img {
   width: 100%;

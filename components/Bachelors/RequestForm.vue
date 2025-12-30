@@ -1,10 +1,10 @@
 <template>
   <section id="request" class="request-form">
     <div class="container">
-      <h2 class="title">Отправить запрос</h2>
-      <p class="sub">
-        Хотите больше узнать о BMU курсах? Оставьте заявку — и мы перезвоним:
-      </p>
+      <h2 class="title">
+        Хотите больше узнать о BMU курсах? Оставьте заявку — <br />
+        и мы перезвоним:
+      </h2>
       <form @submit.prevent="submitForm" class="form">
         <input
           v-model="form.name"
@@ -58,7 +58,7 @@ const submitForm = () => {
 <style scoped>
 .request-form {
   background: var(--palette-1);
-  padding: 60px 0 120px 0;
+  padding: 40px 0 80px 0;
   color: white;
 }
 .container {
@@ -67,10 +67,10 @@ const submitForm = () => {
   margin: 0 auto;
 }
 .title {
-  font-size: 24px;
+  font-size: 28px;
+  line-height: 120%;
   font-weight: 700;
-  text-align: center;
-  margin-bottom: 16px;
+  margin-bottom: 40px;
 }
 .sub {
   font-size: 16px;

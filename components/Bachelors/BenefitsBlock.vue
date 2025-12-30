@@ -10,7 +10,7 @@
             университетами и образовательными институтами, предлагая программы,
             разработанные по международным академическим стандартам
           </p>
-          <img src="/public/img/bach-ben-5.jpg" />
+          <img src="/public/img/bach-ben-6.jpg" />
         </div>
         <div class="item">
           <h5 class="name">Международная команда преподавателей</h5>
@@ -41,7 +41,7 @@
             тренажёрный зал и площадка для падела, которые помогают поддерживать
             баланс между учёбой, продуктивностью и активным досугом.
           </p>
-          <img src="/public/img/bach-ben-4.jpg" />
+          <img src="/public/img/camp-3.jpg" />
         </div>
       </div>
       <p class="note">
@@ -165,11 +165,11 @@ onUnmounted(() => {
     var(--palette-1) 100%
   );
   width: 100%;
-  height: 30%;
+  height: 50%;
   bottom: 0;
   left: 0;
   z-index: 1;
-  opacity: 0.7;
+  opacity: 1;
 }
 .item::before {
   content: "";
@@ -187,7 +187,7 @@ onUnmounted(() => {
   top: 0;
   left: 0;
   z-index: 2;
-  opacity: 0.7;
+  opacity: 0.9;
 }
 .name {
   font-size: 28px;
