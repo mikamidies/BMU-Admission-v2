@@ -36,7 +36,19 @@ const scrollTo = (id) => {
 
 onMounted(() => {
   scrollHandler = () => {
-    showButton.value = window.scrollY >= 80;
+    const facultyBlock =
+      document.querySelector(".faculty") || document.getElementById("faculty");
+
+    if (facultyBlock) {
+      const facultyTop =
+        facultyBlock.getBoundingClientRect().top + window.scrollY;
+      const buttonHeight = 60; // примерная высота кнопки
+      const scrollPosition = window.scrollY + window.innerHeight - buttonHeight;
+
+      showButton.value = window.scrollY >= 80 && scrollPosition < facultyTop;
+    } else {
+      showButton.value = window.scrollY >= 80;
+    }
   };
   window.addEventListener("scroll", scrollHandler);
 });

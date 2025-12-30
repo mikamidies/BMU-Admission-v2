@@ -39,7 +39,7 @@ const faculties = ref([
 <template>
   <section class="faculty">
     <div class="container">
-      <h2 class="title">Проподы:</h2>
+      <h2 class="title">Преподы</h2>
 
       <ClientOnly>
         <Swiper
@@ -89,21 +89,35 @@ const faculties = ref([
 
 <style scoped>
 .faculty {
-  padding: 60px 0 0 0;
+  padding: 60px 0 40px 0;
   overflow: hidden;
 }
 .offer {
   display: grid;
-  grid-template-columns: auto 24px;
+  grid-template-columns: auto 80px;
   justify-content: center;
   align-items: center;
 }
 .offer .title {
-  font-size: 32px;
+  font-size: 28px;
   line-height: 120%;
   font-weight: 700;
   color: var(--blue);
-  margin-bottom: 40px;
+  margin-bottom: 0;
+}
+.offer span {
+  font-size: 80px;
+  color: var(--palette-3);
+  animation: bounce 2s infinite;
+}
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
 }
 .container {
   padding: 0 18px;

@@ -208,7 +208,7 @@ body {
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  background: var(--black);
+  background: var(--red);
   color: white;
   border: none;
   padding: 18px 24px;
