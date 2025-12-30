@@ -1,7 +1,7 @@
 <template>
   <section class="benefits" ref="benefitsRef">
     <div class="container">
-      <h4 class="title">Почему выбрать BMU?</h4>
+      <h4 class="title" ref="titleRef">Почему выбрать BMU?</h4>
       <div class="grid" ref="gridRef">
         <div class="item">
           <h5 class="name">Международное британское образование</h5>
@@ -55,11 +55,13 @@
 <script setup>
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SplitText } from "gsap/SplitText";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const benefitsRef = ref(null);
 const gridRef = ref(null);
+const titleRef = ref(null);
 
 onMounted(() => {
   console.log("onMounted triggered");
@@ -97,6 +99,25 @@ onMounted(() => {
     ScrollTrigger.getAll().length
   );
   ScrollTrigger.refresh();
+
+  const title = titleRef.value;
+  if (title) {
+    const split = new SplitText(title, { type: "chars" });
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: benefitsRef.value,
+        start: "top 75%",
+        toggleActions: "restart none restart none",
+      },
+    });
+    tl.set(split.chars, { opacity: 0 });
+    tl.to(split.chars, {
+      opacity: 1,
+      duration: 0.05,
+      stagger: 0.05,
+      ease: "none",
+    });
+  }
 });
 
 onUnmounted(() => {
@@ -184,14 +205,14 @@ onUnmounted(() => {
   );
 }
 .item:nth-child(4) {
-  background: var(--palette-4);
+  background: var(--palette-1);
 }
 .item:nth-child(4)::after {
   background: linear-gradient(
     180deg,
     rgba(255, 255, 255, 0) 0%,
     rgba(255, 255, 255, 0) 0%,
-    var(--palette-4) 100%
+    var(--palette-1) 100%
   );
 }
 .name {

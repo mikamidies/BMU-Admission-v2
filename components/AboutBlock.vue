@@ -13,30 +13,73 @@
           </h4>
         </div>
       </div>
-      <div class="card card-third">
-        <div class="card card-third" ref="aboutRef">
-          <p class="fade-item">
-            <Icon name="lucide:check-circle" />
-            ускорить карьерный рост
-          </p>
-          <p class="fade-item">
-            <Icon name="lucide:check-circle" />
-            получить международную управленческую экспертизу
-          </p>
-          <p class="fade-item">
-            <Icon name="lucide:check-circle" />
-            усилить свои позиции на рынке труда в Узбекистане и за его пределами
-          </p>
-          <p class="last">
-            Мы объединяем британские академические стандарты,
-            практико-ориентированное обучение и глубокое понимание локального и
-            международного бизнес-контекста.
-          </p>
-        </div>
+      <div class="card card-third" ref="aboutRef">
+        <p class="fade-item">
+          <Icon name="lucide:check-circle" />
+          ускорить карьерный рост
+        </p>
+        <p class="fade-item">
+          <Icon name="lucide:check-circle" />
+          получить международную управленческую экспертизу
+        </p>
+        <p class="fade-item">
+          <Icon name="lucide:check-circle" />
+          усилить свои позиции на рынке труда в Узбекистане и за его пределами
+        </p>
+        <p class="last fade-item">
+          Мы объединяем британские академические стандарты,
+          практико-ориентированное обучение и глубокое понимание локального и
+          международного бизнес-контекста.
+        </p>
       </div>
     </div>
   </section>
 </template>
+
+<script setup>
+import { nextTick, onBeforeUnmount, onMounted, ref } from "vue";
+import { useNuxtApp } from "#app";
+
+const aboutRef = ref(null);
+let ScrollTriggerPlugin = null;
+let gsapContext = null;
+
+onMounted(async () => {
+  if (process.server) return;
+  const moduleTrigger = await import("gsap/ScrollTrigger");
+  ScrollTriggerPlugin = moduleTrigger.ScrollTrigger || moduleTrigger.default;
+
+  const { $gsap } = useNuxtApp();
+  $gsap.registerPlugin(ScrollTriggerPlugin);
+
+  await nextTick();
+  const items = aboutRef.value?.querySelectorAll(".fade-item");
+  const title = aboutRef.value?.querySelector(".title");
+  const allElements = title ? [title, ...Array.from(items)] : Array.from(items);
+  if (!allElements || !allElements.length) return;
+
+  gsapContext = $gsap.context(() => {
+    const tl = $gsap.timeline({
+      scrollTrigger: {
+        trigger: aboutRef.value,
+        start: "top 75%",
+        toggleActions: "restart none restart none",
+      },
+    });
+    tl.from(allElements, {
+      y: 32,
+      opacity: 0,
+      duration: 0.2,
+      ease: "power2.out",
+      stagger: 0.12,
+    });
+  }, aboutRef);
+});
+
+onBeforeUnmount(() => {
+  gsapContext && gsapContext.revert();
+});
+</script>
 
 <style scoped>
 .container {

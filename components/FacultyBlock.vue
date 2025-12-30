@@ -2,7 +2,15 @@
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
-import { ref } from "vue";
+import { ref, onMounted, onBeforeUnmount, nextTick } from "vue";
+import { useNuxtApp } from "#app";
+
+const facultyRef = ref(null);
+const titleRef = ref(null);
+const offerTitleRef = ref(null);
+let ScrollTriggerPlugin = null;
+let SplitTextPlugin = null;
+let gsapContext = null;
 
 const faculties = ref([
   {
@@ -34,12 +42,80 @@ const faculties = ref([
       "Опытный специалист в области бизнеса и образования, с более чем 20-летним стажем работы в университетах США, Китая, Узбекистана и Кыргызстана. Он имеет степень DBA по маркетингу, MBA в области менеджмента, а также два бакалавра — по менеджменту и логистике. Джон Джинкнер преподавал в Гарвардской бизнес-школе и других ведущих вузах, читая курсы по маркетингу, стратегии, управлению цепями поставок и бизнес-симуляциям. ",
   },
 ]);
+
+onMounted(async () => {
+  if (process.server) return;
+  const moduleTrigger = await import("gsap/ScrollTrigger");
+  const moduleSplit = await import("gsap/SplitText");
+  ScrollTriggerPlugin = moduleTrigger.ScrollTrigger || moduleTrigger.default;
+  SplitTextPlugin = moduleSplit.SplitText || moduleSplit.default;
+
+  const { $gsap } = useNuxtApp();
+  $gsap.registerPlugin(ScrollTriggerPlugin, SplitTextPlugin);
+
+  await nextTick();
+
+  gsapContext = $gsap.context(() => {
+    const title = titleRef.value;
+    if (title) {
+      const split = new SplitTextPlugin(title, { type: "chars" });
+      const tl = $gsap.timeline({
+        scrollTrigger: {
+          trigger: facultyRef.value,
+          start: "top 75%",
+          toggleActions: "restart none restart none",
+        },
+      });
+      tl.set(split.chars, { opacity: 0 });
+      tl.to(split.chars, {
+        opacity: 1,
+        duration: 0.05,
+        stagger: 0.05,
+        ease: "none",
+      });
+    }
+
+    const slider = facultyRef.value?.querySelector(".slider");
+    if (slider) {
+      $gsap.from(slider, {
+        y: 32,
+        opacity: 0,
+        duration: 0.6,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: slider,
+          start: "top 85%",
+          toggleActions: "restart none restart none",
+        },
+      });
+    }
+
+    const offer = facultyRef.value?.querySelector(".offer");
+    if (offer) {
+      $gsap.from(offer, {
+        y: 32,
+        opacity: 0,
+        duration: 0.6,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: offer,
+          start: "top 85%",
+          toggleActions: "restart none restart none",
+        },
+      });
+    }
+  }, facultyRef);
+});
+
+onBeforeUnmount(() => {
+  gsapContext && gsapContext.revert();
+});
 </script>
 
 <template>
-  <section class="faculty">
+  <section class="faculty" ref="facultyRef">
     <div class="container">
-      <h2 class="title">Преподы</h2>
+      <h2 class="title" ref="titleRef">Преподы</h2>
 
       <ClientOnly>
         <Swiper

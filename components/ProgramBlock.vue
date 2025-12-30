@@ -1,8 +1,8 @@
 <template>
   <section class="program">
     <div class="anchor" id="program"></div>
-    <div class="container">
-      <h4 class="title">Программы магистратуры</h4>
+    <div class="container" ref="programRef">
+      <h4 class="title" ref="titleRef">Программы магистратуры</h4>
       <div class="grid">
         <div v-for="(program, index) in programs" :key="index" class="item">
           <div class="header" @click="toggleAccordion(index)">
@@ -25,7 +25,13 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, onBeforeUnmount } from "vue";
+import { useNuxtApp } from "#app";
+
+const programRef = ref(null);
+let ScrollTriggerPlugin = null;
+let gsapContext = null;
+let SplitTextPlugin = null;
 
 const programs = ref([
   {
@@ -81,6 +87,59 @@ const applyNow = () => {
 
 onMounted(() => {
   window.applyNow = applyNow;
+
+  if (process.server) return;
+  (async () => {
+    const moduleTrigger = await import("gsap/ScrollTrigger");
+    const moduleSplit = await import("gsap/SplitText");
+    ScrollTriggerPlugin = moduleTrigger.ScrollTrigger || moduleTrigger.default;
+    SplitTextPlugin = moduleSplit.SplitText || moduleSplit.default;
+
+    const { $gsap } = useNuxtApp();
+    $gsap.registerPlugin(ScrollTriggerPlugin, SplitTextPlugin);
+
+    await import("vue").then(({ nextTick }) => nextTick());
+
+    const items = programRef.value?.querySelectorAll(".item");
+    if (!items || !items.length) return;
+
+    gsapContext = $gsap.context(() => {
+      const tl = $gsap.timeline({
+        scrollTrigger: {
+          trigger: programRef.value,
+          start: "top 75%",
+          toggleActions: "restart none restart none",
+        },
+      });
+      tl.from(items, {
+        y: 32,
+        opacity: 0,
+        duration: 0.2,
+        ease: "power2.out",
+        stagger: 0.12,
+      });
+
+      const title = programRef.value?.querySelector(".title");
+      if (title) {
+        const split = new SplitTextPlugin(title, { type: "chars" });
+        tl.set(split.chars, { opacity: 0 }, 0);
+        tl.to(
+          split.chars,
+          {
+            opacity: 1,
+            duration: 0.05,
+            stagger: 0.05,
+            ease: "none",
+          },
+          0
+        );
+      }
+    }, programRef);
+  })();
+});
+
+onBeforeUnmount(() => {
+  gsapContext && gsapContext.revert();
 });
 </script>
 

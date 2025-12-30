@@ -1,14 +1,11 @@
 <template>
   <div class="hero">
-    <div class="content">
-      <img src="/img/hero.jpg" alt="" />
-      <h1>
-        Твой шаг к профессиональному <br />
-        росту и лидерству!
-      </h1>
+    <div class="content" ref="contentRef">
+      <img ref="heroImgRef" src="/img/hero.jpg" alt="" />
+      <h1 ref="headlineRef" v-html="currentHeadline"></h1>
     </div>
     <div class="wrapper">
-      <div class="buttons">
+      <div class="buttons" ref="buttonsRef">
         <NuxtLink target="_blank" to="/bachelors" class="button">
           Программы Бакалавриата
           <div class="icon">
@@ -27,7 +24,133 @@
 </template>
 
 <script setup>
+import {
+  computed,
+  nextTick,
+  onBeforeUnmount,
+  onMounted,
+  ref,
+  watch,
+} from "vue";
+import { useNuxtApp } from "#app";
+
 let scrollHandler = null;
+let splitInstance = null;
+let headlineAnimation = null;
+let animationInterval = null;
+let SplitTextPlugin = null;
+let ScrollTriggerPlugin = null;
+let imageScrollTrigger = null;
+
+const slogans = [
+  "Твой шаг к профессиональному <br /> росту и лидерству!",
+  "Построй карьеру мечты с магистратурой BMU",
+  "Лидерство начинается с правильного выбора",
+  "Стань экспертом в своей области",
+];
+
+const headlineRef = ref(null);
+const heroImgRef = ref(null);
+const contentRef = ref(null);
+const buttonsRef = ref(null);
+const currentIndex = ref(0);
+const currentHeadline = computed(() => slogans[currentIndex.value]);
+
+const animateHeadline = () => {
+  if (!headlineRef.value || !SplitTextPlugin) return;
+
+  splitInstance = new SplitTextPlugin(headlineRef.value, { type: "lines" });
+  const { $gsap } = useNuxtApp();
+
+  headlineAnimation = $gsap.from(splitInstance.lines, {
+    rotationX: -100,
+    scale: 1,
+    transformOrigin: "50% 50% -160px",
+    opacity: 0,
+    duration: 0.8,
+    ease: "power3",
+    stagger: 0.25,
+  });
+};
+
+const startRotation = () => {
+  animationInterval = window.setInterval(() => {
+    currentIndex.value = (currentIndex.value + 1) % slogans.length;
+  }, 5000);
+};
+
+const initParallax = () => {
+  if (!heroImgRef.value || !ScrollTriggerPlugin) return;
+  const { $gsap } = useNuxtApp();
+  $gsap.set(heroImgRef.value, {
+    yPercent: -12,
+    scale: 1.5,
+    transformOrigin: "50% 50%",
+  });
+  const tween = $gsap.to(heroImgRef.value, {
+    yPercent: 12,
+    scale: 1,
+    ease: "none",
+    scrollTrigger: {
+      trigger: contentRef.value || heroImgRef.value,
+      start: "top bottom",
+      end: "bottom top",
+      scrub: true,
+      invalidateOnRefresh: true,
+    },
+  });
+  imageScrollTrigger = tween.scrollTrigger;
+};
+
+watch(currentIndex, async () => {
+  headlineAnimation && headlineAnimation.revert();
+  splitInstance && splitInstance.revert();
+  await nextTick();
+  animateHeadline();
+});
+
+onMounted(async () => {
+  if (process.server) return;
+  const module = await import("gsap/SplitText");
+  const moduleTrigger = await import("gsap/ScrollTrigger");
+  SplitTextPlugin = module.SplitText || module.default;
+  ScrollTriggerPlugin = moduleTrigger.ScrollTrigger || moduleTrigger.default;
+
+  const { $gsap } = useNuxtApp();
+  $gsap.registerPlugin(SplitTextPlugin, ScrollTriggerPlugin);
+
+  await nextTick();
+  animateHeadline();
+  startRotation();
+  initParallax();
+
+  const buttons = buttonsRef.value?.querySelectorAll(".button");
+  if (buttons && buttons.length >= 2) {
+    $gsap.from(buttons[0], {
+      x: -100,
+      opacity: 0,
+      duration: 0.6,
+      ease: "power2.out",
+      delay: 0.5,
+    });
+    $gsap.from(buttons[1], {
+      x: 100,
+      opacity: 0,
+      duration: 0.6,
+      ease: "power2.out",
+      delay: 0.5,
+    });
+  }
+
+  ScrollTriggerPlugin.refresh();
+});
+
+onBeforeUnmount(() => {
+  animationInterval && window.clearInterval(animationInterval);
+  headlineAnimation && headlineAnimation.revert();
+  splitInstance && splitInstance.revert();
+  imageScrollTrigger && imageScrollTrigger.kill();
+});
 
 const scrollTo = (id) => {
   const element = document.getElementById(id);
@@ -54,6 +177,7 @@ img {
   height: 100%;
   object-fit: cover;
   z-index: 1;
+  will-change: transform;
 }
 .wrapper {
   display: flex;
@@ -78,20 +202,22 @@ img {
     rgba(0, 0, 0, 0.6) 100%
   );
   width: 100%;
-  height: 100%;
-  top: 0;
+  height: 30%;
+  bottom: 0;
   left: 0;
   z-index: 1;
 }
 .content h1 {
   font-size: 32px;
-  line-height: 110%;
+  line-height: 120%;
   font-weight: 700;
   color: white;
   position: absolute;
   bottom: 18px;
   left: 18px;
   z-index: 2;
+  width: 100%;
+  max-width: 380px;
 }
 .buttons {
   display: grid;

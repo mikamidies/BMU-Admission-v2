@@ -58,7 +58,7 @@ const submitForm = () => {
 
 <style scoped>
 .request-form {
-  background: var(--blue);
+  background: var(--palette-1);
   padding: 40px 0 80px 0;
   color: white;
 }
