@@ -7,33 +7,94 @@
       </h2>
 
       <form @submit.prevent="submitForm" class="form">
-        <input
-          v-model="form.name"
-          type="text"
-          placeholder="Ваше имя"
-          required
-          class="input"
-        />
-        <input
-          v-model="form.email"
-          type="email"
-          placeholder="Email"
-          required
-          class="input"
-        />
-        <input
-          v-model="form.phone"
-          type="tel"
-          placeholder="Телефон"
-          required
-          class="input"
-        />
-        <textarea
-          v-model="form.message"
-          placeholder="Сообщение"
-          required
-          class="input textarea"
-        ></textarea>
+        <div class="form-item">
+          <div class="icon">
+            <Icon name="lucide:user" />
+          </div>
+          <input
+            v-model="form.name"
+            type="text"
+            placeholder="Ваше имя"
+            required
+            class="input"
+          />
+        </div>
+        <div class="form-item">
+          <div class="icon">
+            <Icon name="lucide:user" />
+          </div>
+          <input
+            v-model="form.surname"
+            type="text"
+            placeholder="Ваша фамилия"
+            required
+            class="input"
+          />
+        </div>
+        <div class="form-item">
+          <div class="icon">
+            <Icon name="lucide:mail" />
+          </div>
+          <input
+            v-model="form.email"
+            type="text"
+            placeholder="Ваше email"
+            required
+            class="input"
+          />
+        </div>
+        <div class="form-item numberer">
+          <div>
+            <div class="icon">
+              <Icon name="lucide:phone" />
+            </div>
+            <input
+              v-model="form.number"
+              type="number"
+              placeholder="Телефон"
+              required
+              class="input"
+            />
+          </div>
+          <button class="send-sms">Получить SMS</button>
+        </div>
+        <div class="form-item">
+          <div class="icon">
+            <Icon name="lucide:message-circle" />
+          </div>
+          <input
+            v-model="form.smsCode"
+            type="text"
+            placeholder="Код с SMS"
+            required
+            class="input"
+          />
+        </div>
+        <div class="form-item">
+          <div class="icon">
+            <Icon name="lucide:lock" />
+          </div>
+          <input
+            v-model="form.password"
+            type="password"
+            placeholder="Пароль"
+            required
+            class="input"
+          />
+        </div>
+        <div class="form-item">
+          <div class="icon">
+            <Icon name="lucide:lock" />
+          </div>
+          <input
+            v-model="form.confirmPassword"
+            type="password"
+            placeholder="Подтвердите пароль"
+            required
+            class="input"
+          />
+        </div>
+
         <button type="submit" class="submit-btn">Отправить</button>
       </form>
     </div>
@@ -84,10 +145,20 @@ const submitForm = () => {
   flex-direction: column;
   gap: 16px;
 }
+.form-item {
+  position: relative;
+}
+.icon {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  transform: translateY(-50%);
+  color: #999;
+}
 .input {
   background: white;
   border: none;
-  padding: 16px;
+  padding: 16px 16px 16px 48px;
   border-radius: 8px;
   font-size: 16px;
   width: 100%;
@@ -114,5 +185,26 @@ const submitForm = () => {
 }
 .submit-btn:hover {
   background: #cc0000;
+}
+.numberer {
+  display: grid;
+  grid-template-columns: 1fr 120px;
+}
+.numberer input {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.send-sms {
+  background: var(--palette-3);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 0 12px;
 }
 </style>
