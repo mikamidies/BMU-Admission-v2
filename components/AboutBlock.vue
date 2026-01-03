@@ -9,27 +9,25 @@
       <div class="card card-sec">
         <div class="content">
           <h4 class="title">
-            Магистерские программы BMU созданы для тех, кто хочет:
+            {{ t("about.masters.title") }}
           </h4>
         </div>
       </div>
       <div class="card card-third" ref="aboutRef">
         <p class="fade-item">
           <Icon name="lucide:check-circle" />
-          ускорить карьерный рост
+          {{ t("about.masters.point1") }}
         </p>
         <p class="fade-item">
           <Icon name="lucide:check-circle" />
-          получить международную управленческую экспертизу
+          {{ t("about.masters.point2") }}
         </p>
         <p class="fade-item">
           <Icon name="lucide:check-circle" />
-          усилить свои позиции на рынке труда в Узбекистане и за его пределами
+          {{ t("about.masters.point3") }}
         </p>
         <p class="last fade-item">
-          Мы объединяем британские академические стандарты,
-          практико-ориентированное обучение и глубокое понимание локального и
-          международного бизнес-контекста.
+          {{ t("about.masters.description") }}
         </p>
       </div>
     </div>
@@ -39,6 +37,8 @@
 <script setup>
 import { nextTick, onBeforeUnmount, onMounted, ref } from "vue";
 import { useNuxtApp } from "#app";
+
+const { t } = useI18n();
 
 const aboutRef = ref(null);
 let ScrollTriggerPlugin = null;

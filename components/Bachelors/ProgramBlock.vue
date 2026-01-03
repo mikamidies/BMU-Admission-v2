@@ -2,19 +2,18 @@
   <section class="program">
     <div class="anchor" id="program"></div>
     <div class="container" ref="programRef">
-      <h4 class="title" ref="titleRef">Узнай больше о BMU</h4>
+      <h4 class="title" ref="titleRef">{{ t("program.bachelors.title") }}</h4>
       <div class="grid">
         <div v-for="(program, index) in programs" :key="index" class="item">
           <div class="header" @click="toggleAccordion(index)">
-            <h5 class="name">{{ program.name }}</h5>
-
+            <h5 class="name">{{ t(program.name) }}</h5>
             <div class="icon">
               <Icon name="lucide:plus" />
             </div>
           </div>
           <transition name="accordion">
             <div v-show="program.isOpen" class="body">
-              <div class="txt" v-html="program.description"></div>
+              <div class="txt" v-html="t(program.description)"></div>
             </div>
           </transition>
         </div>
@@ -27,6 +26,8 @@
 import { ref, onMounted, onBeforeUnmount } from "vue";
 import { useNuxtApp } from "#app";
 
+const { t } = useI18n();
+
 const programRef = ref(null);
 let ScrollTriggerPlugin = null;
 let gsapContext = null;
@@ -34,33 +35,33 @@ let SplitTextPlugin = null;
 
 const programs = ref([
   {
-    name: "Программа Foundation",
-    description:
-      "Программа Foundation разработана в партнёрстве с британским университетом <strong>University of Reading</strong>, входящим в топ-30 вузов Великобритании. По завершении обучения студенты получают сертификат Foundation, который предоставляет возможность продолжить обучение на уровне бакалавриата как в Узбекистане, так и за рубежом<br><br>Минимальные критерии приема:<br>• Диплом средней школы/ академического лицея/ профессионального колледжа<br>• IELTS ≥ 5,5 или эквивалент",
+    img: "/img/dir-1.webp",
+    name: "program.bachelors.prog1.name",
+    description: "program.bachelors.prog1.desc",
     isOpen: false,
   },
   {
-    name: "Программы Бакалавриата",
-    description:
-      "Программы бакалавриата аккредитованы Министерством высшего образования Республики Узбекистан, а также проходят ежегодную валидацию партнёрским университетом <strong>Queen Margaret University</strong> (Великобритания). Университет предлагает следующие направления по специальностям:<br><br>• Бухгалтерский учёт и финансы (ACCA)<br>• Банковское дело и финансы (CFA)<br>• Управление проектами (PMI)<br>• Информационные системы управления (IT)<br>• Логистика и управление цепочками поставок<br>• Цифровой маркетинг и электронная коммерция<br>• Коммуникации и связи с общественностью<br>• Экономика и устойчивое развитие<br><br>По окончании обучения студенты получают двойной диплом — международного и национального образца, что значительно повышает их конкурентоспособность на рынке труда.",
+    img: "/img/dir-2.webp",
+    name: "program.bachelors.prog2.name",
+    description: "program.bachelors.prog2.desc",
     isOpen: false,
   },
   {
-    name: "Гранты и стипендии",
-    description:
-      "Доступны следующие гранты:<br><br>• <strong>Грант 20%</strong> — предоставляется абитуриентам с результатом IELTS ≥ 6.0.<br>• <strong>Грант 50%</strong> — предоставляется абитуриентам с результатом IELTS ≥ 7.0, успешно сдавшим внутренний экзамен по математике или имеющим SAT ≥ 550.<br>• <strong>Грант 100%</strong> — предоставляется талантливым абитуриентам из социально уязвимых семей с результатом IELTS ≥ 6.0, успешно прошедшим экзамен по математике и собеседование, а также предоставившим подтверждающие документы.<br><br>Стипендии для лучших студентов на курсе:<br>• Золотая стипендия — 1 000 000 UZS в месяц<br>• Серебряная стипендия — 500 000 UZS в месяц",
+    img: "/img/dir-3.webp",
+    name: "program.bachelors.prog3.name",
+    description: "program.bachelors.prog3.desc",
     isOpen: false,
   },
   {
-    name: "Общежитие для студентов",
-    description:
-      "Общежитие British Management University — это современное 9-этажное здание площадью 6 500 м², спроектированное с заботой о комфорте и безопасности студентов. Здесь могут проживать до 376 студентов, включая бакалавриат и магистратуру.<br><br>Что вас ждет:<br>• Современные и удобные комнаты — в большинстве по 3 человека, есть отдельные комнаты для студентов магистратуры<br>• Всё включено: кровати с постельным бельём, шкафы, рабочее место, индивидуальный санузел с душем<br>• Коворкинги для учебы и совместных проектов<br>• Просторные зоны отдыха на первом этаже<br>• Прачечная с удобным графиком<br>• Высокоскоростной Wi-Fi — 24/7<br>• Безопасность и комфорт: жизнь в общежитии курируется резидент-комендантом, который следит за порядком, соблюдением стандартов и помогает решать возникающие вопросы<br>• Мужчины и женщины проживают на отдельных этажах, что также способствует уважительной и безопасной атмосфере",
+    img: "/img/dir-4.webp",
+    name: "program.bachelors.prog4.name",
+    description: "program.bachelors.prog4.desc",
     isOpen: false,
   },
   {
-    name: "Cambridge Dream",
-    description:
-      "При поступлении, каждый абитуриент может стать участником уникального конкурса Cambridge Dream и выиграть поездку в Великобританию, полностью финансируемую университетом. Принимайте участие в перспективном конкурсе BMU и отправляйтесь в сердце британского образования уже в апреле 2027 года – выбор за вами!<br><br>Подробную информацию можно получить на сайте или по номеру телефона (+78)-555-33-33.<br><a href='https://bmu-edu.uz/page/instructions-and-criteria-for-participation-in-the-competition' target='_blank' style='color: white; text-decoration: underline;'>Подробнее о конкурсе</a>",
+    img: "/img/dir-5.webp",
+    name: "program.bachelors.prog5.name",
+    description: "program.bachelors.prog5.desc",
     isOpen: false,
   },
 ]);

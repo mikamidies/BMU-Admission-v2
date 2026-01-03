@@ -1,52 +1,39 @@
 <template>
   <section class="benefits" ref="benefitsRef">
     <div class="container">
-      <h4 class="title" ref="titleRef">Почему BMU?</h4>
+      <h4 class="title" ref="titleRef">{{ t("benefits.title") }}</h4>
       <div class="grid" ref="gridRef">
         <div class="item">
-          <h5 class="name">Международное британское образование</h5>
+          <h5 class="name">{{ t("benefits.masters.item1.title") }}</h5>
           <p class="txt">
-            British Management University работает в партнёрстве с зарубежными
-            университетами и образовательными институтами, предлагая программы,
-            разработанные по международным академическим стандартам
+            {{ t("benefits.masters.item1.text") }}
           </p>
           <img src="/public/img/ben-diploma.JPG" />
         </div>
         <div class="item">
-          <h5 class="name">Международная команда преподавателей</h5>
+          <h5 class="name">{{ t("benefits.masters.item2.title") }}</h5>
           <p class="txt">
-            Обучение в BMU проходит полностью на английском языке под
-            руководством преподавателей с международным академическим и
-            практическим опытом. Мультикультурная среда формирует уверенную
-            профессиональную коммуникацию и готовность работать в международных
-            командах.
+            {{ t("benefits.masters.item2.text") }}
           </p>
           <img src="/public/img/bach-ben-0.JPG" />
         </div>
         <div class="item">
-          <h5 class="name">Практика, кейсы и ключевые навыки</h5>
+          <h5 class="name">{{ t("benefits.masters.item3.title") }}</h5>
           <p class="txt">
-            Учебный процесс построен вокруг реальных бизнес- и управленческих
-            кейсов и прикладных проектов. Студенты развивают навыки
-            аргументации, структурного мышления, публичных выступлений и
-            профессиональной коммуникации.
+            {{ t("benefits.masters.item3.text") }}
           </p>
           <img src="/public/img/gallery/gal-25.JPG" />
         </div>
         <div class="item">
-          <h5 class="name">Современный кампус и студенческая среда</h5>
+          <h5 class="name">{{ t("benefits.masters.item4.title") }}</h5>
           <p class="txt">
-            Современный кампус BMU создаёт комфортную и динамичную среду для
-            обучения и жизни. В распоряжении студентов — просторная библиотека,
-            тренажёрный зал и площадка для падела, которые помогают поддерживать
-            баланс между учёбой, продуктивностью и активным досугом.
+            {{ t("benefits.masters.item4.text") }}
           </p>
           <img src="/public/img/camp-3.jpg" />
         </div>
       </div>
       <p class="note">
-        Обучение полностью проходит на английском языке и соответствует
-        британским академическим стандартам.
+        {{ t("benefits.note") }}
       </p>
     </div>
   </section>
@@ -56,6 +43,8 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
+
+const { t } = useI18n();
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 

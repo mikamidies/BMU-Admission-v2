@@ -5,6 +5,8 @@ import "swiper/css";
 import { ref, onMounted, onBeforeUnmount, nextTick } from "vue";
 import { useNuxtApp } from "#app";
 
+const { t } = useI18n();
+
 const facultyRef = ref(null);
 const titleRef = ref(null);
 const offerTitleRef = ref(null);
@@ -14,32 +16,28 @@ let gsapContext = null;
 
 const faculties = ref([
   {
-    title: "Лионель Хендерсон, MBA, DBA",
-    description: "Deputy Rector (Postgraduate and Internationalisation)",
+    title: "faculty.masters.prof1.name",
+    description: "faculty.masters.prof1.position",
     image: "/img/team-2.webp",
-    quote:
-      "Международный эксперт в сфере бизнес-образования с более чем 20-летним опытом преподавания и руководства в ведущих университетах Великобритании и Азии. Возглавлял Школу бизнеса и менеджмента в The Sino-British College (Шанхай) — совместном проекте Университета Шанхая и девяти британских вузов.",
+    quote: "faculty.masters.prof1.bio",
   },
   {
-    title: "Тимур Умаров, PhD",
-    description: "Stanford University",
+    title: "faculty.masters.prof2.name",
+    description: "faculty.masters.prof2.position",
     image: "/img/team-6.webp",
-    quote:
-      "Признанный эксперт в сфере ИТ-образования и международной аккредитации, с более чем 25-летним опытом в академической среде. Свой преподавательский путь он начал в США, в Northern Arizona University, где вел занятия по дискретной математике, инженерии и другим техническим дисциплинам. Профессор Умаров получил степень PhD в области Computer Science в King’s College London (UK), а также является официальным экспертом ABET.",
+    quote: "faculty.masters.prof2.bio",
   },
   {
-    title: "Кристиан Капоне, MBA, PMP",
-    description: "California Institute of Technology",
+    title: "faculty.masters.prof3.name",
+    description: "faculty.masters.prof3.position",
     image: "/img/team-4.webp",
-    quote:
-      "Эксперт в области управления проектами с более чем 30-летним опытом руководства проектами и портфелями в странах Центральной Азии и Европы. Он преподаёт и консультирует в таких направлениях, как современные методы реализации проектов (предиктивный, agile и гибридный подходы), управление рисками на основе данных и управление освоением бюджета. Является сертифицированным экспертом PMP. ",
+    quote: "faculty.masters.prof3.bio",
   },
   {
-    title: "Джон Джинкер, DBA",
-    description: "California Institute of Technology",
+    title: "faculty.masters.prof4.name",
+    description: "faculty.masters.prof4.position",
     image: "/img/team-7.jpg",
-    quote:
-      "Опытный специалист в области бизнеса и образования, с более чем 20-летним стажем работы в университетах США, Китая, Узбекистана и Кыргызстана. Он имеет степень DBA по маркетингу, MBA в области менеджмента, а также два бакалавра — по менеджменту и логистике. Джон Джинкнер преподавал в Гарвардской бизнес-школе и других ведущих вузах, читая курсы по маркетингу, стратегии, управлению цепями поставок и бизнес-симуляциям. ",
+    quote: "faculty.masters.prof4.bio",
   },
 ]);
 
@@ -115,7 +113,7 @@ onBeforeUnmount(() => {
 <template>
   <section class="faculty" ref="facultyRef">
     <div class="container">
-      <h2 class="title" ref="titleRef">Преподы</h2>
+      <h2 class="title" ref="titleRef">{{ t("faculty.masters.title") }}</h2>
 
       <ClientOnly>
         <Swiper
@@ -137,15 +135,19 @@ onBeforeUnmount(() => {
           >
             <div class="top">
               <div class="image-wrapper">
-                <img :src="faculty.image" :alt="faculty.title" class="image" />
+                <img
+                  :src="faculty.image"
+                  :alt="t(faculty.title)"
+                  class="image"
+                />
               </div>
               <div class="content">
-                <h3 class="name">{{ faculty.title }}</h3>
-                <p class="description">{{ faculty.description }}</p>
+                <h3 class="name">{{ t(faculty.title) }}</h3>
+                <p class="description">{{ t(faculty.description) }}</p>
               </div>
             </div>
             <div class="bottom">
-              <div class="txt">{{ faculty.quote }}</div>
+              <div class="txt">{{ t(faculty.quote) }}</div>
             </div>
           </SwiperSlide>
         </Swiper>
@@ -155,7 +157,7 @@ onBeforeUnmount(() => {
     <div class="container">
       <div class="offer">
         <h2 class="title">
-          Магистратура - это инвестиция в знания, статус и карьеру!
+          {{ t("faculty.masters.offer") }}
         </h2>
         <Icon name="lucide:arrow-down" />
       </div>

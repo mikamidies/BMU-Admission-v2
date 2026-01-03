@@ -7,13 +7,13 @@
     <div class="wrapper">
       <div class="buttons" ref="buttonsRef">
         <NuxtLink target="_blank" to="/bachelors" class="button">
-          Программы Бакалавриата
+          {{ t("hero.bachelors") }}
           <div class="icon">
             <Icon name="lucide:arrow-right" />
           </div>
         </NuxtLink>
         <NuxtLink @click="scrollTo('program')" class="button">
-          Программы Магистратуры
+          {{ t("hero.masters") }}
           <div class="icon">
             <Icon name="lucide:arrow-right" />
           </div>
@@ -43,18 +43,20 @@ let ScrollTriggerPlugin = null;
 let imageScrollTrigger = null;
 
 const slogans = [
-  "Твой шаг к профессиональному <br /> росту и лидерству!",
-  "Построй карьеру мечты с магистратурой BMU",
-  "Лидерство начинается с правильного выбора",
-  "Стань экспертом в своей области",
+  "hero.masters.slogan1",
+  "hero.masters.slogan2",
+  "hero.masters.slogan3",
+  "hero.masters.slogan4",
 ];
+
+const { t, locale } = useI18n();
 
 const headlineRef = ref(null);
 const heroImgRef = ref(null);
 const contentRef = ref(null);
 const buttonsRef = ref(null);
 const currentIndex = ref(0);
-const currentHeadline = computed(() => slogans[currentIndex.value]);
+const currentHeadline = computed(() => t(slogans[currentIndex.value]));
 
 const animateHeadline = () => {
   if (!headlineRef.value || !SplitTextPlugin) return;
@@ -103,6 +105,14 @@ const initParallax = () => {
 };
 
 watch(currentIndex, async () => {
+  headlineAnimation && headlineAnimation.revert();
+  splitInstance && splitInstance.revert();
+  await nextTick();
+  animateHeadline();
+});
+
+// Пересоздаем анимацию при смене языка
+watch(locale, async () => {
   headlineAnimation && headlineAnimation.revert();
   splitInstance && splitInstance.revert();
   await nextTick();

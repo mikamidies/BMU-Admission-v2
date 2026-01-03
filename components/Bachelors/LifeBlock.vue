@@ -8,6 +8,8 @@ import { SplitText } from "gsap/SplitText";
 import "swiper/css";
 import "swiper/css/effect-fade";
 
+const { t } = useI18n();
+
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const swiperRefs = ref([]);
@@ -18,23 +20,23 @@ let gsapContext = null;
 
 const slides = [
   {
-    name: "Кампусная жизнь",
+    name: "life.slide1",
     image: "/img/gallery/gal-01.jpg",
   },
   {
-    name: "Студенческие мероприятия",
+    name: "life.slide2",
     image: "/img/gallery/gal-02.jpg",
   },
   {
-    name: "Учебные пространства",
+    name: "life.slide3",
     image: "/img/gallery/gal-04.jpg",
   },
   {
-    name: "Спорт и активности",
+    name: "life.slide4",
     image: "/img/gallery/gal-03.jpg",
   },
   {
-    name: "Библиотека и зоны отдыха",
+    name: "life.slide5",
     image: "/img/gallery/gal-05.jpg",
   },
 ];
@@ -94,7 +96,7 @@ onBeforeUnmount(() => {
 <template>
   <section class="life" ref="lifeRef" id="life">
     <div class="container">
-      <h2 class="life__title title" ref="titleRef">Жизнь в BMU</h2>
+      <h2 class="life__title title" ref="titleRef">{{ t("life.title") }}</h2>
 
       <div class="grid" ref="gridRef">
         <ClientOnly>
@@ -116,7 +118,7 @@ onBeforeUnmount(() => {
               :key="index"
               class="item"
             >
-              <h5 class="name">{{ slide.name }}</h5>
+              <h5 class="name">{{ t(slide.name) }}</h5>
               <img :src="slide.image" alt="" />
             </SwiperSlide>
           </Swiper>
@@ -126,7 +128,7 @@ onBeforeUnmount(() => {
 
     <div class="container">
       <div class="offer">
-        <h2 class="title">Приём заявок уже открыт!</h2>
+        <h2 class="title">{{ t("life.apply") }}</h2>
         <Icon name="lucide:arrow-down" />
       </div>
     </div>

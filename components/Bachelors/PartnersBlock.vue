@@ -4,6 +4,7 @@ import { Autoplay } from "swiper/modules";
 import "swiper/swiper-bundle.css";
 import { ref, onMounted, onBeforeUnmount } from "vue";
 import { useNuxtApp } from "#app";
+const { t } = useI18n();
 
 const partnersRef = ref(null);
 let ScrollTriggerPlugin = null;
@@ -38,7 +39,7 @@ onBeforeUnmount(() => {
 <template>
   <section class="partners" ref="partnersRef">
     <div class="container">
-      <h4 class="title">Аккредитации и Признание</h4>
+      <h4 class="title">{{ t("partners.title") }}</h4>
       <div class="items">
         <div class="item">
           <img src="/img/part-1.png" alt="AQA" />

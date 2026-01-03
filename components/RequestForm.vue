@@ -1,8 +1,37 @@
+<script setup>
+import { ref } from "vue";
+
+const { t } = useI18n();
+
+const form = ref({
+  name: "",
+  surname: "",
+  email: "",
+  number: "",
+  smsCode: "",
+  password: "",
+  confirmPassword: "",
+});
+
+const submitForm = () => {
+  alert(t("requestForm.alert"));
+  form.value = {
+    name: "",
+    surname: "",
+    email: "",
+    number: "",
+    smsCode: "",
+    password: "",
+    confirmPassword: "",
+  };
+};
+</script>
+
 <template>
   <section class="request-form">
     <div class="container">
       <h2 class="title">
-        Хотите больше узнать о BMU курсах? Оставьте заявку и мы перезвоним:
+        {{ t("requestForm.title") }}
       </h2>
 
       <form @submit.prevent="submitForm" class="form">
@@ -13,7 +42,7 @@
           <input
             v-model="form.name"
             type="text"
-            placeholder="Ваше имя"
+            :placeholder="t('requestForm.name')"
             required
             class="input"
           />
@@ -25,7 +54,7 @@
           <input
             v-model="form.surname"
             type="text"
-            placeholder="Ваша фамилия"
+            :placeholder="t('requestForm.surname')"
             required
             class="input"
           />
@@ -37,7 +66,7 @@
           <input
             v-model="form.email"
             type="text"
-            placeholder="Ваше email"
+            :placeholder="t('requestForm.email')"
             required
             class="input"
           />
@@ -50,12 +79,12 @@
             <input
               v-model="form.number"
               type="number"
-              placeholder="Телефон"
+              :placeholder="t('requestForm.phone')"
               required
               class="input"
             />
           </div>
-          <button class="send-sms">Получить SMS</button>
+          <button class="send-sms">{{ t("requestForm.sendSms") }}</button>
         </div>
         <div class="form-item">
           <div class="icon">
@@ -64,7 +93,7 @@
           <input
             v-model="form.smsCode"
             type="text"
-            placeholder="Код с SMS"
+            :placeholder="t('requestForm.smsCode')"
             required
             class="input"
           />
@@ -76,7 +105,7 @@
           <input
             v-model="form.password"
             type="password"
-            placeholder="Пароль"
+            :placeholder="t('requestForm.password')"
             required
             class="input"
           />
@@ -88,33 +117,19 @@
           <input
             v-model="form.confirmPassword"
             type="password"
-            placeholder="Подтвердите пароль"
+            :placeholder="t('requestForm.confirmPassword')"
             required
             class="input"
           />
         </div>
 
-        <button type="submit" class="submit-btn">Отправить</button>
+        <button type="submit" class="submit-btn">
+          {{ t("requestForm.submit") }}
+        </button>
       </form>
     </div>
   </section>
 </template>
-
-<script setup>
-import { ref } from "vue";
-
-const form = ref({
-  name: "",
-  email: "",
-  phone: "",
-  message: "",
-});
-
-const submitForm = () => {
-  alert("Запрос отправлен!");
-  form.value = { name: "", email: "", phone: "", message: "" };
-};
-</script>
 
 <style scoped>
 .request-form {

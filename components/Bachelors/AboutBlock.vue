@@ -8,15 +8,13 @@
       </div> -->
       <div class="card card-sec">
         <div class="content">
-          <h4 class="title">British Management University -</h4>
+          <h4 class="title">{{ t("about.bachelors.title") }}</h4>
         </div>
       </div>
       <div class="card card-third" ref="aboutRef">
         <p class="fade-item">
           <Icon name="lucide:check-circle" />
-          Это ваш путь к успешной международной карьере. Обучаясь на наших
-          программах бакалавриата, вы получаете британское образование мирового
-          уровня!
+          {{ t("about.bachelors.description") }}
         </p>
       </div>
     </div>
@@ -26,6 +24,8 @@
 <script setup>
 import { nextTick, onBeforeUnmount, onMounted, ref } from "vue";
 import { useNuxtApp } from "#app";
+
+const { t } = useI18n();
 
 const aboutRef = ref(null);
 let ScrollTriggerPlugin = null;

@@ -2,11 +2,11 @@
   <section class="program">
     <div class="anchor" id="program"></div>
     <div class="container" ref="programRef">
-      <h4 class="title" ref="titleRef">Программы магистратуры</h4>
+      <h4 class="title" ref="titleRef">{{ t("program.masters.title") }}</h4>
       <div class="grid">
         <div v-for="(program, index) in programs" :key="index" class="item">
           <div class="header" @click="toggleAccordion(index)">
-            <h5 class="name">{{ program.name }}</h5>
+            <h5 class="name">{{ t(program.name) }}</h5>
 
             <div class="icon">
               <Icon name="lucide:plus" />
@@ -14,7 +14,7 @@
           </div>
           <transition name="accordion">
             <div v-show="program.isOpen" class="body">
-              <div class="txt" v-html="program.description"></div>
+              <div class="txt" v-html="t(program.description)"></div>
               <img :src="program.img" />
             </div>
           </transition>
@@ -28,6 +28,8 @@
 import { ref, onMounted, onBeforeUnmount } from "vue";
 import { useNuxtApp } from "#app";
 
+const { t } = useI18n();
+
 const programRef = ref(null);
 let ScrollTriggerPlugin = null;
 let gsapContext = null;
@@ -36,37 +38,32 @@ let SplitTextPlugin = null;
 const programs = ref([
   {
     img: "/img/dir-1.webp",
-    name: "MSc in International Management",
-    description:
-      "Вы научитесь грамотно синхронизировать работу отделов, использовать различные инструменты менеджмента и применять на практике навыки, которые помогут в развитии вашего бизнеса. Программа даёт комплексное понимание:<br><br>• международного менеджмента и стратегического управления<br>• глобальных бизнес-моделей и международных рынков<br>• управления международными проектами<br>• кросс-культурной коммуникации<br>• принятия управленческих решений в глобальной среде<br><br>Критерии: диплом бакалавра, сертификат IELTS 6.5, интвервью<br>",
+    name: "program.masters.prog1.name",
+    description: "program.masters.prog1.desc",
     isOpen: false,
   },
   {
     img: "/img/dir-2.webp",
-    name: "MSc in Accounting and Finance",
-    description:
-      "На программе вы научитесь использовать финансовую информацию для принятия управленческих решений, а также освоите знания в следующих областях:<br><br>• финансовый и управленческий учёт<br>• анализ и интерпретация финансовой отчётности<br>• корпоративные финансы<br>• инвестиционные решения<br>• управление финансовыми рисками<br>• современные стандарты и практики в сфере Accounting & Finance<br><br>Критерии: диплом бакалавра, сертификат IELTS 6.5, интвервью<br>",
+    name: "program.masters.prog2.name",
+    description: "program.masters.prog2.desc",
     isOpen: false,
   },
   {
     img: "/img/dir-3.webp",
-    name: "MBA with Project Management",
-    description:
-      "Программа объединяет классический MBA и профессиональное управление проектами, включая:<br>• стратегический менеджмент<br>• управление проектами и процессами<br>• планирование сроков, бюджета и ресурсов<br>• управление рисками и качеством<br>• лидерство и управление командами<br>• принятие решений в условиях неопределённости<br><br>Критерии: диплом бакалавра, сертификат IELTS 6.0, интвервью, опыт работы<br>",
+    name: "program.masters.prog3.name",
+    description: "program.masters.prog3.desc",
     isOpen: false,
   },
   {
     img: "/img/dir-4.webp",
-    name: "MBA with Data Analytics",
-    description:
-      "Программа объединяет классический MBA и современную бизнес-аналитику, где вы научитесь:<br>• анализу бизнес-данных<br>• принимать решения на основе данных<br>• интерпретеровать показатели и отчётности<br>• бизнес-моделированию и прогнозированию<br>• аналитическому мышлению для менеджеров<br><br>Критерии: диплом бакалавра, сертификат IELTS 6.0, интвервью<br>",
+    name: "program.masters.prog4.name",
+    description: "program.masters.prog4.desc",
     isOpen: false,
   },
   {
     img: "/img/dir-5.webp",
-    name: "MA Tesol with Educational Leadership",
-    description:
-      "Программа сочетает методику преподавания английского языка (TESOL) и образовательное лидерство, включая:<br>• современные подходы к преподаванию английского языка<br>• методику обучения в мультикультурной среде<br>• разработку и оценку учебных программ<br>• образовательное лидерство и управление<br>• академическое качество и развитие преподавателей<br>• исследования и рефлексию в образовании<br><br>Критерии: диплом бакалавра, сертификат IELTS 6.5, интвервью, опыт работы<br>",
+    name: "program.masters.prog5.name",
+    description: "program.masters.prog5.desc",
     isOpen: false,
   },
 ]);

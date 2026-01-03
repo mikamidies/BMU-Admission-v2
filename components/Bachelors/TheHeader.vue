@@ -6,6 +6,17 @@
       </NuxtLink>
     </div>
     <div class="right">
+      <div class="language-switcher">
+        <button
+          v-for="lang in availableLocales"
+          :key="lang"
+          @click="setLocale(lang)"
+          :class="{ active: locale === lang }"
+          class="lang-btn"
+        >
+          {{ lang.toUpperCase() }}
+        </button>
+      </div>
       <!-- <div class="burger" @click="toggleMenu" :class="{ open: isMenuOpen }">
         <div class="stick"></div>
       </div> -->
@@ -40,6 +51,7 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
+const { locale, setLocale, availableLocales, initLocale } = useI18n();
 
 const isScrolled = ref(false);
 const isMenuOpen = ref(false);
@@ -62,6 +74,7 @@ const scrollTo = (id) => {
 
 onMounted(() => {
   window.addEventListener("scroll", handleScroll);
+  initLocale();
 });
 
 onUnmounted(() => {
@@ -74,7 +87,7 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 24px;
+  padding: 20px;
   position: fixed;
   width: 100%;
   top: 0;
@@ -84,7 +97,7 @@ onUnmounted(() => {
 }
 .container.scrolled {
   background: rgba(245, 245, 247, 0.9);
-  padding: 20px;
+  padding: 18px;
 }
 .left img {
   width: 168px;
@@ -96,6 +109,40 @@ onUnmounted(() => {
 .left a {
   text-decoration: none;
   display: flex;
+}
+.right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.language-switcher {
+  display: flex;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 6px;
+  border-radius: 24px;
+  backdrop-filter: blur(10px);
+}
+.container.scrolled .language-switcher {
+  background: rgba(255, 255, 255, 1);
+}
+.lang-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px 8px;
+  border-radius: 18px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--blue);
+  transition: all 0.3s ease;
+}
+.lang-btn:hover {
+  background: rgba(0, 102, 204, 0.1);
+}
+.lang-btn.active {
+  background: var(--blue);
+  color: white;
 }
 .stick {
   width: 30px;
