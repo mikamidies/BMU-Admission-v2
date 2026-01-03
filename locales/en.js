@@ -8,9 +8,9 @@ export default {
   "hero.masters": "Master's Programs",
 
   "hero.masters.slogan1":
-    "Your step towards professional growth and leadership!",
-  "hero.masters.slogan2": "Build your dream career with BMU master's degree",
-  "hero.masters.slogan3": "Leadership starts with the right choice",
+    "Your step toward professional growth and leadership!",
+  "hero.masters.slogan2": "Build your dream career with a BMU Master’s degree",
+  "hero.masters.slogan3": "Leadership begins with the right choice",
   "hero.masters.slogan4": "Become an expert in your field",
 
   "header.bachelors": "Bachelor's",
@@ -27,18 +27,18 @@ export default {
 
   // About Section - Masters
   "about.masters.title":
-    "BMU Master's Programs are created for those who want to:",
-  "about.masters.point1": "accelerate career growth",
-  "about.masters.point2": "gain international management expertise",
+    "BMU postgraduate programmes are designed for those who want to:",
+  "about.masters.point1": "Accelerate their career growth",
+  "about.masters.point2": "Gain international management expertise",
   "about.masters.point3":
-    "strengthen their position in the labor market in Uzbekistan and beyond",
+    "Strengthen their position in the labor market in Uzbekistan and abroad",
   "about.masters.description":
-    "We combine British academic standards, practice-oriented learning, and deep understanding of local and international business contexts.",
+    "We combine British academic standards, practice-oriented learning, and a deep understanding of both local and international business contexts.",
 
   // About Section - Bachelors
   "about.bachelors.title": "British Management University -",
   "about.bachelors.description":
-    "This is your path to a successful international career. Studying our bachelor's programs, you receive a world-class British education!",
+    "This is your path to a successful international career. By studying in our bachelor’s degree programmes, you receive a world-class British education!",
 
   // Benefits Section - Common
   "benefits.title": "Why BMU?",
@@ -48,30 +48,29 @@ export default {
   // Benefits Section - Masters
   "benefits.masters.item1.title": "International British Education",
   "benefits.masters.item1.text":
-    "British Management University works in partnership with foreign universities and educational institutions, offering programs developed according to international academic standards",
+    "British Management University partners with foreign universities and educational institutions, offering programs developed according to international academic standards",
   "benefits.masters.item2.title": "International Faculty Team",
   "benefits.masters.item2.text":
-    "Education at BMU is conducted entirely in English under the guidance of faculty with international academic and practical experience. The multicultural environment fosters confident professional communication and readiness to work in international teams.",
+    "At BMU, all programmes are taught entirely in English by instructors with international academic and practical experience. The multicultural environment fosters confident professional communication and prepares students to work effectively in international teams",
   "benefits.masters.item3.title": "Practice, Cases and Key Skills",
   "benefits.masters.item3.text":
-    "The learning process is built around real business and management cases and applied projects. Students develop skills in argumentation, structural thinking, public speaking and professional communication.",
-  "benefits.masters.item4.title": "Modern Campus and Student Environment",
+    "The curriculum is built around real business and management cases, as well as practical projects. Students develop skills in critical thinking, structured problem-solving, public speaking, and professional communication",
   "benefits.masters.item4.text":
-    "BMU's modern campus creates a comfortable and dynamic environment for study and life. Students have access to a spacious library, gym and padel court, which help maintain a balance between study, productivity and active leisure.",
+    "BMU’s modern campus provides a comfortable and dynamic environment for learning and living. Students have access to a spacious library, gym, and padel court, helping them maintain a balance between studies, productivity, and active leisure",
 
   // Benefits Section - Bachelors
   "benefits.bachelors.item1.title": "UK Double Degree",
   "benefits.bachelors.item1.text":
-    "British Management University works in partnership with foreign universities and educational institutions, offering dual-degree programs developed according to international academic standards",
+    "British Management University works in partnership with international universities and educational institutions, offering dual degree programmes developed in line with global academic standards",
   "benefits.bachelors.item2.title": "International Faculty Team",
   "benefits.bachelors.item2.text":
-    "Education at BMU is conducted entirely in English under the guidance of faculty with international academic and practical experience. The multicultural environment fosters confident professional communication and readiness to work in international teams",
+    "All programmes at BMU are delivered entirely in English by faculty with international academic and professional experience. A multicultural environment builds confident professional communication skills and prepares students to work effectively in international teams",
   "benefits.bachelors.item3.title": "Vibrant Student Life",
   "benefits.bachelors.item3.text":
-    "The university actively supports student initiatives, clubs and events, creating a unique atmosphere for vibrant student life. From international tournaments to art festivals and sports championships - every student can find themselves and unlock their potential",
+    "The university actively supports student initiatives, clubs, and events, creating a unique and dynamic campus atmosphere. From international tournaments to art festivals and sports championships, every student can find their passion and unlock their potential",
   "benefits.bachelors.item4.title": "Modern Campus and Student Environment",
   "benefits.bachelors.item4.text":
-    "BMU's modern campus creates a comfortable and dynamic environment for study and life. Students have access to a spacious library, gym and padel court, which help maintain a balance between study, productivity and active leisure",
+    "BMU’s modern campus offers a comfortable and dynamic space for both study and life. Students have access to a spacious library, a gym, and a padel court, helping them maintain a healthy balance between academics, productivity, and an active lifestyle",
 
   // Program Section - Bachelors
   "program.bachelors.title": "Learn More About BMU",
@@ -115,7 +114,7 @@ export default {
   "life.slide2": "Student Events",
   "life.slide3": "Learning Spaces",
   "life.slide4": "Sports and Activities",
-  "life.slide5": "Library and Recreation Areas",
+  "life.slide5": "Library and Relaxation Areas",
   "life.apply": "Applications are now open!",
 
   // Faculty Section - Masters
@@ -123,29 +122,28 @@ export default {
   "faculty.masters.offer":
     "Master's degree is an investment in knowledge, status and career!",
   "faculty.masters.prof1.name": "Lionel Henderson, MBA, DBA",
-  "faculty.masters.prof1.position":
-    "Deputy Rector (Postgraduate and Internationalisation)",
+  "faculty.masters.prof1.position": "Athabasca University",
   "faculty.masters.prof1.bio":
-    "International expert in business education with over 20 years of teaching and leadership experience in leading universities in the UK and Asia. Led the School of Business and Management at The Sino-British College (Shanghai) — a joint project of Shanghai University and nine British universities.",
+    "International expert in business education with over 20 years of teaching and leadership experience at leading universities in the UK and Asia. He led the Business and Management School at The Sino-British College (Shanghai) — a joint project of Shanghai University and nine UK universities",
   "faculty.masters.prof2.name": "Timur Umarov, PhD",
-  "faculty.masters.prof2.position": "Stanford University",
+  "faculty.masters.prof2.position": "Kings College London",
   "faculty.masters.prof2.bio":
-    "Recognized expert in IT education and international accreditation, with over 25 years of experience in academia. He began his teaching career in the USA at Northern Arizona University, where he taught discrete mathematics, engineering and other technical disciplines. Professor Umarov received his PhD in Computer Science from King's College London (UK) and is also an official ABET expert.",
+    "Recognized expert in IT education and international accreditation, with over 25 years of academic experience. He began his teaching career in the USA at Northern Arizona University, teaching discrete mathematics, engineering, and other technical subjects. Dr. Umarov holds a PhD in Computer Science from King’s College London (UK) and is an official ABET expert",
   "faculty.masters.prof3.name": "Christian Capone, MBA, PMP",
-  "faculty.masters.prof3.position": "California Institute of Technology",
+  "faculty.masters.prof3.position": "Sapienza University of Rome",
   "faculty.masters.prof3.bio":
-    "Expert in project management with over 30 years of experience managing projects and portfolios in Central Asia and Europe. He teaches and consults in areas such as modern project implementation methods (predictive, agile and hybrid approaches), data-driven risk management and budget utilization management. He is a certified PMP expert.",
+    "Expert in project management with over 30 years of experience leading projects and portfolios across Central Asia and Europe. He teaches and consults in areas such as modern project management approaches (predictive, agile, and hybrid), data-driven risk management, and budget control. PMP-certified professional",
   "faculty.masters.prof4.name": "John Ginkner, DBA",
-  "faculty.masters.prof4.position": "California Institute of Technology",
+  "faculty.masters.prof4.position": "Jacksonville State University",
   "faculty.masters.prof4.bio":
-    "Experienced professional in business and education, with over 20 years of work experience in universities in the USA, China, Uzbekistan and Kyrgyzstan. He holds a DBA in marketing, an MBA in management, and two bachelor's degrees in management and logistics. John Ginkner taught at Harvard Business School and other leading universities, teaching courses in marketing, strategy, supply chain management and business simulations.",
+    "Experienced specialist in business and education with over 20 years of experience at universities in the USA, China, Uzbekistan, and Kyrgyzstan. Holds a DBA in Marketing, an MBA in Management, and two bachelor’s degrees in Management and Logistics. Dr. Jinkner has taught at Harvard Business School and other leading institutions, covering marketing, strategy, supply chain management, and business simulations",
 
   // Request Form
   "requestForm.title":
-    "Want to learn more about BMU courses? Leave a request and we will call you back:",
-  "requestForm.name": "Your name",
-  "requestForm.surname": "Your surname",
-  "requestForm.email": "Your email",
+    "Want to learn more about BMU programmes? Submit your application and we will contact you:",
+  "requestForm.name": "First name",
+  "requestForm.surname": "Last name",
+  "requestForm.email": "Email",
   "requestForm.phone": "Phone",
   "requestForm.sendSms": "Get SMS",
   "requestForm.smsCode": "SMS code",
